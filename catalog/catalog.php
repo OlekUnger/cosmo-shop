@@ -9,9 +9,16 @@ $categories_menu = categories_to_string($categories_tree);
 
 
 if(isset($_GET['product'])){
-    $product_id = (int)$_GET['product'];
     // массив данных продукта
-    $get_one_product = get_one_product($product_id);
+    //для id:
+//    $product_id = (int)$_GET['product'];
+//    $get_one_product = get_one_product($product_id);
+
+    // для alias:
+    $product_alias = $_GET['product'];
+    $get_one_product = get_one_product($product_alias);
+
+
     // получаем шв категории:
     $id = $get_one_product['parent'];
 } else {

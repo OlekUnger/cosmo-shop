@@ -100,9 +100,10 @@ function get_products($ids = null, $start_pos, $perpage)
 }
 
 //Получение товара
-function get_one_product($product_id){
+function get_one_product($product_alias){
     global $connection;
-    $query = "SELECT * FROM products WHERE id = $product_id";
+    $product_alias = mysqli_real_escape_string($connection, $product_alias);
+    $query = "SELECT * FROM products WHERE alias = '$product_alias'";
     $res = mysqli_query($connection, $query);
     return mysqli_fetch_assoc($res);
 }
