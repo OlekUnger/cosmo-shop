@@ -26,7 +26,7 @@ $breadcrumbs = '';
 if ($breadcrumbs_array) {
     $breadcrumbs = "<a class='breadcrumbs_link' href='" .PATH. "'>Каталог</a>";
     foreach ($breadcrumbs_array as $id => $title) {
-        $breadcrumbs .= "<a class='breadcrumbs_link' href='" .PATH. "?category={$id}'>{$title}</a>";
+        $breadcrumbs .= "<a class='breadcrumbs_link' href='" .PATH. "category/{$id}'>{$title}</a>";
     }
     if(isset($get_one_product)){
         $breadcrumbs .= "<div class='breadcrumbs_link'>".$get_one_product['title']."</div>";

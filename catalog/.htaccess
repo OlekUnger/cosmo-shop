@@ -1,1 +1,6 @@
 AddDefaultCharset utf-8
+
+RewriteEngine On
+RewriteBase /catalog/
+RewriteRule  ^product/(\d+)/?$ product.php?product=$1
+RewriteRule ^category/(\d+) index.php?category=$1 [QSA]

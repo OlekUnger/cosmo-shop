@@ -38,7 +38,7 @@ include 'catalog.php';
                     <article class="product_item--one">
 
                         <div class="product_img">
-                            <img class="empty_thumb" src="img/<?=$get_one_product['image'];?>" alt="">
+                            <img class="empty_thumb" src="<?=PATH?>/img/<?=$get_one_product['image'];?>" alt="">
                         </div>
                         <div class="product_header">
                             <div class="product_title">
@@ -57,7 +57,7 @@ include 'catalog.php';
                         </div>
                     </article>
                <?php else:?>
-                   <?php  echo "Такого товара нет."  ?>
+                   <?php  echo "Такого товара нет." ?>
                <?php endif; ?>
 
             </div>

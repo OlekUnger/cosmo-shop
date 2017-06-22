@@ -41,8 +41,8 @@ include 'catalog.php';
                             <?php foreach ($products as $product):?>
 
 			                        <article class="products_item">
-				                        <a class="product_img" href="<?php echo PATH ?>product.php?product=<?=$product['id'];?>">
-					                        <img class="empty_thumb" src="img/<?=$product['image'];?>" alt="">
+				                        <a class="product_img" href="<?php echo PATH ?>product/<?=$product['id'];?>">
+					                        <img class="empty_thumb" src="<?=PATH?>/img/<?=$product['image'];?>" alt="">
 				                        </a>
 				                        <div class="product_header">
 					                        <div class="product_title">

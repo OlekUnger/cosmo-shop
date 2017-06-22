@@ -123,7 +123,7 @@ function count_goods($ids)
 }
 
 //Пагинация
-function pagination($page, $count_pages)
+function pagination($page, $count_pages, $modrew=true)
 {
     // $back- ссылка назад
     // $forward - ссылка вперед
@@ -136,9 +136,27 @@ function pagination($page, $count_pages)
 
     // формируем  ссылку,усли есть параметры в запросе:
     $uri = "?";
-    if ($_SERVER['QUERY_STRING']) {
-        foreach ($_GET as $key => $value) {
-            if ($key != 'page') $uri .= "{$key}=$value&amp;";
+//    if ($_SERVER['QUERY_STRING']) {
+//        foreach ($_GET as $key => $value) {
+//            if ($key != 'page') $uri .= "{$key}=$value&amp;";
+//        }
+//    }
+    if(!$modrew){
+        if ($_SERVER['QUERY_STRING']) {
+            foreach ($_GET as $key => $value) {
+                if ($key != 'page') $uri .= "{$key}=$value&amp;";
+            }
+        }
+    } else {
+        $url = $_SERVER['REQUEST_URI'];
+        $url = explode('?', $url);
+        if(isset($url[1]) && $url[1]!=''){
+            $params = explode('&',$url[1]);
+            foreach($params as $param){
+                if(!preg_match("/page=/",$param)){
+                    $uri.="{$param}&amp;";
+                }
+            }
         }
     }
     if ($page > 1) {
