@@ -7,9 +7,9 @@ include 'config.php';
 //$url = str_replace('/catalog/','',$_SERVER['REQUEST_URI']);
 $url =ltrim($_SERVER['REQUEST_URI'],'/');
 $routes = array(
-    array('url'=>'#^$|^\?#', 'view'=>'category'),
+    array('url'=>'#^$|^\?#', 'view'=>'page'),
     array('url'=>'#^product/(?P<product_alias>[a-z0-9-]+)#i', 'view'=>'product'),
-    array('url'=>'#^category/(?P<id>\d+)#i','view'=>'category'),
+    array('url'=>'#^category/(?P<id>\d+)?#i','view'=>'category'),
     array('url'=>'#^page/(?P<page_alias>[a-z0-9-]+)#i','view'=>'page')
 );
 foreach ($routes as $route){

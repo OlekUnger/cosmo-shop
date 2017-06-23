@@ -12,4 +12,8 @@
 			 </li>
         <?php endif; ?>
     <?php endforeach; ?>
+	<li class="menu_item">
+		<a class="menu_link" href="<?php echo PATH?>category/">Каталог</a>
+
+	</li>
 </ul>

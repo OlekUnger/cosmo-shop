@@ -148,7 +148,7 @@ header{
 .breadcrumbs{
     display: flex;
     flex-wrap: wrap;
-    margin-right: 20px;
+    padding-right: 20px;
     /*margin-bottom: 10px;*/
 }
 .breadcrumbs_link,
@@ -167,6 +167,10 @@ header{
     background: -webkit-linear-gradient(top, rgba(193, 232, 210, .7) 0%,rgba(130, 179, 151, .7) 40%,rgba(57, 128, 88, .7) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(193, 232, 210, .7) 0%,rgba(130, 179, 151, .7) 40%,rgba(57, 128, 88, .7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+.breadcrumbs_link:last-child{
+    margin-right: 0;
+}
+
 .breadcrumbs_link:not(:last-child):hover,
 .menu_link:hover{
     background: -moz-linear-gradient(top, rgba(57, 128, 88, .7) 0%, rgba(130, 179, 151, .7) 40%, rgba(193, 232, 210, .7) 100%); /* FF3.6-15 */
