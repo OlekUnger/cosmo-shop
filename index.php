@@ -9,7 +9,8 @@ $url =ltrim($_SERVER['REQUEST_URI'],'/');
 $routes = array(
     array('url'=>'#^$|^\?#', 'view'=>'category'),
     array('url'=>'#^product/(?P<product_alias>[a-z0-9-]+)#i', 'view'=>'product'),
-    array('url'=>'#^category/(?P<id>\d+)#i','view'=>'category')
+    array('url'=>'#^category/(?P<id>\d+)#i','view'=>'category'),
+    array('url'=>'#^page/(?P<page_alias>[a-z0-9-]+)#i','view'=>'page')
 );
 foreach ($routes as $route){
     if(preg_match($route['url'],$url, $match)){
@@ -23,6 +24,7 @@ if(empty($match)){
     exit;
 }
 extract($match);
+
 // $id -id категории
 // $product_ alias - alias продукта
 // view - вид для подключения

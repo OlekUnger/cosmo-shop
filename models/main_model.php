@@ -134,4 +134,16 @@ function breadcrumbs($categories, $id)
     return array_reverse($breadcrumbs_array, true);
 }
 
+// получение страниц
+function get_pages(){
+    global $connection;
+    $query = "SELECT title, alias FROM pages ORDER BY position";
+    $res = mysqli_query($connection, $query);
+    $pages = array();
+    while($row = mysqli_fetch_assoc($res)){
+        $pages[$row['alias']]= $row['title'];
+    }
+    return $pages;
+}
+
 
