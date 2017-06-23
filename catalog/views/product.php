@@ -1,7 +1,4 @@
-<?php
-include 'catalog.php';
-
-?>
+<?php defined("CATALOG") or die("Access denied");?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +6,7 @@ include 'catalog.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?php echo PATH ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo PATH ?>views/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -38,7 +35,7 @@ include 'catalog.php';
                     <article class="product_item--one">
 
                         <div class="product_img">
-                            <img class="empty_thumb" src="<?=PATH?>/img/<?=$get_one_product['image'];?>" alt="">
+                            <img class="empty_thumb" src="<?=PATH?>views/img/<?=$get_one_product['image'];?>" alt="">
                         </div>
                         <div class="product_header">
                             <div class="product_title">
@@ -66,9 +63,9 @@ include 'catalog.php';
     </div>
 
 </div>
-<script src="<?php echo PATH ?>js/jquery-1.9.0.min.js"></script>
-<script src="<?php echo PATH ?>js/jquery.accordion.js"></script>
-<script src="<?php echo PATH ?>js/jquery.cookie.js"></script>
-<script src="<?php echo PATH ?>js/main.js"></script>
+<script src="<?php echo PATH ?>views/js/jquery-1.9.0.min.js"></script>
+<script src="<?php echo PATH ?>views/js/jquery.accordion.js"></script>
+<script src="<?php echo PATH ?>views/js/jquery.cookie.js"></script>
+<script src="<?php echo PATH ?>views/js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+
 //распечатка массива
 function print_arr($array)
 {
@@ -45,9 +46,9 @@ function categories_to_string($data)
 //шаблон вывода категорий
 function categories_to_template($category)
 {
-//    $category;
+//    $category = null;
     ob_start();
-    include 'category_template.php';
+    include 'views/category_template.php';
     return ob_get_clean();
 }
 
@@ -55,10 +56,9 @@ function categories_to_template($category)
 function breadcrumbs($categories, $id)
 {
     if (!$id) return false;
-
     $breadcrumbs_array = array();
     for ($i = 0; $i < count($categories); $i++) {
-        if ($categories[$id]) {
+        if (isset($categories[$id])){
             //ставим ключом id запрошенной категории, а значением название категории
             $breadcrumbs_array[$categories[$id]['id']] = $categories[$id]['title'];
             // перезаписываем  id на родительский, чтобы искать аналогично дальше по дереву
@@ -100,7 +100,8 @@ function get_products($ids = null, $start_pos, $perpage)
 }
 
 //Получение товара
-function get_one_product($product_alias){
+function get_one_product($product_alias)
+{
     global $connection;
     $product_alias = mysqli_real_escape_string($connection, $product_alias);
     $query = "SELECT * FROM products WHERE alias = '$product_alias'";
@@ -124,16 +125,16 @@ function count_goods($ids)
 }
 
 //Пагинация
-function pagination($page, $count_pages, $modrew=true)
+function pagination($page, $count_pages, $modrew = true)
 {
-    // $back- ссылка назад
-    // $forward - ссылка вперед
-    // $start_page - ссылка в начало
-    // $end_page -  ссылка в конец
-    // $page2left - вторая страница слева
-    // $page1left - первая страница слева
-    // $page2right - вторая страница справа
-    // $page1right - первая страница справа
+     $back = null; //- ссылка назад
+     $forward = null; // - ссылка вперед
+     $start_page = null; // - ссылка в начало
+     $end_page = null; // -  ссылка в конец
+     $page2left = null; // - вторая страница слева
+     $page1left = null; // - первая страница слева
+     $page2right = null; // - вторая страница справа
+     $page1right = null; // - первая страница справа
 
     // формируем  ссылку,усли есть параметры в запросе:
     $uri = "?";
@@ -142,7 +143,7 @@ function pagination($page, $count_pages, $modrew=true)
 //            if ($key != 'page') $uri .= "{$key}=$value&amp;";
 //        }
 //    }
-    if(!$modrew){
+    if (!$modrew) {
         if ($_SERVER['QUERY_STRING']) {
             foreach ($_GET as $key => $value) {
                 if ($key != 'page') $uri .= "{$key}=$value&amp;";
@@ -151,11 +152,11 @@ function pagination($page, $count_pages, $modrew=true)
     } else {
         $url = $_SERVER['REQUEST_URI'];
         $url = explode('?', $url);
-        if(isset($url[1]) && $url[1]!=''){
-            $params = explode('&',$url[1]);
-            foreach($params as $param){
-                if(!preg_match("/page=/",$param)){
-                    $uri.="{$param}&amp;";
+        if (isset($url[1]) && $url[1] != '') {
+            $params = explode('&', $url[1]);
+            foreach ($params as $param) {
+                if (!preg_match("/page=/", $param)) {
+                    $uri .= "{$param}&amp;";
                 }
             }
         }
@@ -185,5 +186,5 @@ function pagination($page, $count_pages, $modrew=true)
         $page2right = "<a class='pag_item' href='{$uri}page=" . ($page + 2) . "'>" . ($page + 2) . "</a>";
     }
 
-    return $start_page . $back . $page2left . $page1left."<a class='pag_item active'>" . $page ."</a>".$page1right . $page2right . $forward . $end_page;
+    return $start_page . $back . $page2left . $page1left . "<a class='pag_item active'>" . $page . "</a>" . $page1right . $page2right . $forward . $end_page;
 }
