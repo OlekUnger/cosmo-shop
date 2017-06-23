@@ -1,9 +1,11 @@
 <?php
+defined("CATALOG") or die("Access denied");
+
 define("DBHOST","localhost");
 define("DBUSER","root");
 define("DBPASS","");
 define("DBNAME","apple");
-define("PATH","http://localhost/catalog/");
+define("PATH","http://catalog/");
 define("PERPAGE",12);
 //$option_perpage = array(12,18,24,30);
 

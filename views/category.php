@@ -14,17 +14,7 @@
             <div class="main-content">
 
                 <div class="sidebar">
-                    <div class="sidebar_item">
-                        <div class="sidebar_item-header">
-                            Каталог
-                        </div>
-                        <div class="sidebar_item-content">
-                            <ul class="category">
-                                <?php echo $categories_menu; ?>
-                            </ul>
-                        </div>
-
-                    </div>
+                    <?php include '_sidebar.php';?>
                 </div>
                 <div class="content">
 	                <div class="nav_panel">

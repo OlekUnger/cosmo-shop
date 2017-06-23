@@ -6,6 +6,7 @@
 }
 body{
     color: #fff;
+    /*letter-spacing: .7px;*/
     font-size: 16px;
     line-height: 18px;
     font-family: "Arial", sans-serif;
@@ -51,7 +52,6 @@ select{
     display: flex;
     justify-content:space-between;
     align-items: flex-start;
-    margin-bottom: 20px;
     padding-right: 20px;
 }
 .sidebar{
@@ -80,8 +80,8 @@ select{
 }
 ul{
 	list-style: none;
-
 }
+
 a{
     text-decoration: none;
 }
@@ -123,7 +123,7 @@ a{
 }
 .category_link.active,
 .category_link:hover {
-    text-decoration: underline;
+    color: teal;
 }
 .category_item{
     padding: 0 20px;
@@ -146,7 +146,7 @@ a{
     border-radius: 3px;
     padding: 0 10px;
     font-size: 14px;
-    line-height: 25px;
+    line-height: 30px;
     text-shadow: -1px 0 1px rgba(130, 179, 151, 1);
     color: #fff;
     background: rgb(247,251,252); /* Old browsers */
@@ -162,16 +162,14 @@ a{
 .products {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -10px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    /*border: 2px solid rgba(130, 179, 151, 1);*/
+    margin-top: 10px;
 }
 .products_item {
     width: 300px;
     border-radius: 3px;
     overflow: hidden;
-    margin: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 .product_img{
     display: block;
@@ -200,6 +198,7 @@ a{
     width: 180px;
     margin-right: 10px;
     text-align: left;
+    font-size: 14px;
     /*margin-bottom: 10px;*/
 }
 .product_price{
@@ -222,15 +221,16 @@ a{
     width: 100%;
     min-height: 50px;
     background-color: rgba(107, 74, 27, .6);
-    padding: 15px;
+    padding: 0 15px 15px 40px;
     color: rgba(255,255,255,.7);
     text-align: left;
 }
 .pagination{
-    /*margin-bottom: 20px;*/
+    display: flex;
+
 }
 .pag_item{
-    display: inline-block;
+    display: block;
     margin-right: 5px;
     color: #000;
     border-radius: 4px;
@@ -251,17 +251,23 @@ a{
 
 .product_item--one {
     width: 100%;
-    margin-top: 10px;
     border-radius: 5px;
     overflow: hidden;
 }
-
+.product_item--one .product_header{
+    padding-left: 40px;
+}
 .product_item--one .product_img {
     height: 500px;
 }
+@media (max-width: 1300px) {
+    .product_item--one .product_img {
+        height: 450px;
+    }
+}
 .product_item--one .product_title {
     width: 400px;
-    text-align: center;
+    font-size: 18px;
 }
 .notice {
     margin: auto;
