@@ -1,5 +1,6 @@
 AddDefaultCharset utf-8
-#Options -Index
+php_flag magic_quotes_gpc Off
+Options -Indexes
 
 RewriteEngine On
 RewriteBase /

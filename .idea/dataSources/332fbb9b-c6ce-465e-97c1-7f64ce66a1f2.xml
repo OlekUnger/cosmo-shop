@@ -13,123 +13,172 @@
     <schema id="7" parent="1" name="performance_schema"/>
     <schema id="8" parent="1" name="wordpress"/>
     <table id="9" parent="2" name="categories"/>
-    <table id="10" parent="2" name="pages"/>
-    <table id="11" parent="2" name="products"/>
-    <column id="12" parent="9" name="id">
+    <table id="10" parent="2" name="comments"/>
+    <table id="11" parent="2" name="pages"/>
+    <table id="12" parent="2" name="products"/>
+    <column id="13" parent="9" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="13" parent="9" name="title">
+    <column id="14" parent="9" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="9" name="parent">
+    <column id="15" parent="9" name="parent">
       <Position>3</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="15" parent="9" name="PRIMARY">
+    <key id="16" parent="9" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="16" parent="10" name="page_id">
+    <column id="17" parent="10" name="comment_id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="18" parent="10" name="comment_author">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="10" name="comment_text">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="10" name="parent">
+      <Position>4</Position>
+      <Comment>родит комментарий</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="21" parent="10" name="product_id">
+      <Position>5</Position>
+      <Comment>к какому продукту относится</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="10" name="approved">
+      <Position>6</Position>
+      <Comment>разрешен/не разрешен</Comment>
+      <DataType>enum(&apos;0&apos;, &apos;1&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="23" parent="10" name="created">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="24" parent="10" name="is_admin">
+      <Position>8</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="25" parent="11" name="page_id">
       <Position>1</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="17" parent="10" name="title">
+    <column id="26" parent="11" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="18" parent="10" name="alias">
+    <column id="27" parent="11" name="alias">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="10" name="description">
+    <column id="28" parent="11" name="description">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="10" name="keywords">
+    <column id="29" parent="11" name="keywords">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="10" name="text">
+    <column id="30" parent="11" name="text">
       <Position>6</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="10" name="position">
+    <column id="31" parent="11" name="position">
       <Position>7</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <index id="23" parent="10" name="alias">
+    <index id="32" parent="11" name="alias">
       <ColNames>alias</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="24" parent="10" name="PRIMARY">
+    <key id="33" parent="11" name="PRIMARY">
       <ColNames>page_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="25" parent="10" name="alias">
+    <key id="34" parent="11" name="alias">
       <ColNames>alias</ColNames>
       <UnderlyingIndexName>alias</UnderlyingIndexName>
     </key>
-    <column id="26" parent="11" name="id">
+    <column id="35" parent="12" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="27" parent="11" name="title">
+    <column id="36" parent="12" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="28" parent="11" name="parent">
+    <column id="37" parent="12" name="parent">
       <Position>3</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="11" name="content">
+    <column id="38" parent="12" name="content">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="30" parent="11" name="image">
+    <column id="39" parent="12" name="image">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;empty_thumb.jpg&apos;</DefaultExpression>
     </column>
-    <column id="31" parent="11" name="price">
+    <column id="40" parent="12" name="price">
       <Position>6</Position>
       <DataType>float|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="11" name="alias">
+    <column id="41" parent="12" name="alias">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="33" parent="11" name="alias">
+    <index id="42" parent="12" name="alias">
       <ColNames>alias</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="34" parent="11" name="PRIMARY">
+    <key id="43" parent="12" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="35" parent="11" name="alias">
+    <key id="44" parent="12" name="alias">
       <ColNames>alias</ColNames>
       <UnderlyingIndexName>alias</UnderlyingIndexName>
     </key>

@@ -396,13 +396,29 @@ header {
 .comments {
     width: 100%;
     min-height: 100px;
-    margin-top: 25px;
+    margin-top: 35px;
+    margin-bottom: 20px;
     padding: 10px;
     color: rgba(255, 255, 255, .6);
 }
 
 .comments ul:not(.comments_list) {
     padding-left: 40px;
+}
+
+.comments_list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.comments_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comments_footer .btn-icon {
+    float: right;
 }
 
 .comment_text {
@@ -435,7 +451,7 @@ header {
     position: absolute;
     content: '';
     top: 0;
-    left: 10px;
+    left: -30px;
     width: 30px;
     height: 30px;
     background-image: url("../img/share.png");
@@ -456,16 +472,6 @@ span.user {
 
 span.admin {
     color: brown;
-}
-
-.comments_list {
-    margin-top: 20px;
-}
-
-.comments_header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .comment_content {

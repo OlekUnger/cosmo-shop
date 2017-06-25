@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 24.06.2017
- * Time: 21:26
- */
+defined("CATALOG") or die("Access denied");
+
+include "main_controller.php";
+include "models/{$view}_model.php";
+
+echo add_comment();
