@@ -41,22 +41,10 @@ function get_last_comment($comment_id)
     $query = "SELECT * FROM comments WHERE comment_id = $comment_id";
     $res = mysqli_query($connection, $query);
     $comment = mysqli_fetch_assoc($res);
-    if ($comment['is_admin']) {
-        $user_class = 'admin';
-    } else {
-        $user_class = 'user';
-    }
-    if ((int)$comment['parent'] > 0) {
-        $content_class = 'child-comment';
-    }
+    ob_start();
+    include 'views/_new_comment.php';
+    $comment_html = ob_get_clean();
 
-    $comment_html = "<div class='comment_content {$content_class}'>";
-    $comment_html .= "<div class='comment_header'>";
-    $comment_html .= "<span class='{$user_class}'>" . htmlspecialchars($comment['comment_author']) . "</span>";
-    $comment_html .= "<span>" . $comment['created'] . "</span>";
-    $comment_html .= "</div>";
-    $comment_html .= "<div class='comment_text'>" . htmlspecialchars(nl2br($comment['comment_text'])) . "</div>";
-    $comment_html .= "</div>";
     $res = array('answer' => 'Комментарий добавлен', 'code' => $comment_html, 'id' => $comment_id);
     return json_encode($res);
 }

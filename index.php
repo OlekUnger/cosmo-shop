@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 define("CATALOG",true);
-include 'config.php';
+
 
 // ROUTING-----------------------------
 //$url = str_replace('/catalog/','',$_SERVER['REQUEST_URI']);
@@ -29,4 +29,5 @@ extract($match);
 // $id -id категории
 // $product_ alias - alias продукта
 // view - вид для подключения
+include 'config.php';
 include "controllers/{$view}_controller.php";

@@ -13,6 +13,8 @@ if(isset($product_alias)){
 
 // id товара
 $product_id = $get_one_product['id'];
+//кл во комментариев
+$count_comments = count_comments($product_id);
 //получаем комментарии к товару
 $get_comments = get_comments($product_id);
 //строим дерево комментариев

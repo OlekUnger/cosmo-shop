@@ -21,3 +21,12 @@ function get_comments($product_id){
     }
     return $comments;
 }
+
+//получение кол ва комментариев
+function count_comments($product_id){
+    global $connection;
+    $query = "SELECT COUNT(*) FROM comments WHERE product_id = $product_id";
+    $res = mysqli_query($connection,$query);
+    $row = mysqli_fetch_row($res);
+    return $row[0];
+}

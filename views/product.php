@@ -40,17 +40,21 @@
 		</div>
 		<div class="comments">
 			<div class="comments_header">
-				<h3>Комментарии</h3>
-				<button class="open-form_btn btn-icon">Оставить комментарий</button>
+				<h3>Комментарии  (<?=$count_comments;?>)</h3>
+				<button class="open-form_btn btn-icon btn-icon--right">Оставить комментарий</button>
 			</div>
 
 
 			<ul class="comments_list">
              <?php echo $comments; ?>
 			</ul>
-			<div class="comments_footer">
-				<button class="open-form_btn btn-icon">Оставить комментарий</button>
-			</div>
+			<?php if(!empty($comments)):?>
+				<div class="comments_footer">
+					<button class="open-form_btn btn-icon btn-icon--left">Оставить комментарий</button>
+				</div>
+
+			<?php endif;?>
+
 		</div>
 
 		<div id="form-wrap">
@@ -71,7 +75,12 @@
 		</div>
 	</div>
 </div>
-
+<div id="loader">
+	<span></span>
+</div>
+<div id="errors">
+	<h4>not success</h4>
+</div>
 
 <?php include '_scripts.php'; ?>
 <script>
@@ -107,32 +116,52 @@
                             parent: parent,
                             productId: productId
                         },
+	                     beforeSend: function(){
+                            $('#loader').fadeIn();
+	                     },
                         success: function (res) {
                             var result = JSON.parse(res);
-//                            console.log(result);
-                            var showComment = '<li class="comments_item new-comment" id="comment-' + result.id + '">' + result.code + '</li>';
+	                         if(result.answer =='Комментарий добавлен'){
+	                             // если комментарий добавлен
+		                          var showComment = '<li class="comments_item new-comment" id="comment-' + result.id + '">' + result.code + '</li>';
 
-                            if (parent == 0) {
-                                //если это не ответ
-                                $('ul.comments_list').append(showComment);
-                            } else {
-                                //если Это ответ
-                                // находим родителя li
-                                var parentComment = $this.closest('.comments_item');
-                                //смотрим есть ли ответы
-                                var childs = parentComment.children('ul');
-                                if (childs.length) {
-												//если ответы есть
-                                    childs.append(showComment);
+                                if (parent == 0) {
+                                    //если это не ответ
+                                    $('ul.comments_list').append(showComment);
                                 } else {
-												//если ответов пока нет
-                                    parentComment.append('<ul>'+ showComment +'</ul>');
+                                    //если Это ответ
+                                    // находим родителя li
+                                    var parentComment = $this.closest('.comments_item');
+                                    //смотрим есть ли ответы
+                                    var childs = parentComment.children('ul');
+                                    if (childs.length) {
+                                        //если ответы есть
+                                        childs.append(showComment);
+                                    } else {
+                                        //если ответов пока нет
+                                        parentComment.append('<ul>'+ showComment +'</ul>');
+                                    }
                                 }
-                            }
+	                         }else{
+	                             //если комментарий не добавлен
+											$('#errors').text(result.answer);
+											$('#errors').delay(500).queue(function(){
+	                                 $(this).dialog('open');
+	                                 $(this).dequeue();
+	                              });
+//                                $('#errors').delay(500).queue(function(next){
+//                                    $(this).dialog('open');
+//                                    $(next);
+//                                });
+	                         }
+
                         },
                         error: function () {
                             alert("Ошибка");
-                        }
+                        },
+	                     complete: function(){
+                            $('#loader').fadeOut();
+	                     }
                     });
                 },
                 "Отмена": function () {

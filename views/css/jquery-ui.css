@@ -429,9 +429,8 @@ button.ui-button::-moz-focus-inner {
 	border: 1px solid #444444;
 }
 .ui-widget-content {
-	/*border: 1px solid #555555;*/
+
 	background: url("../img/ep_naturalblack.png") 50% 50% repeat;
-	color: #ffffff;
 }
 .ui-widget-content a {
 	color: #ffffff;
@@ -455,9 +454,7 @@ button.ui-button::-moz-focus-inner {
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	/*border: 1px solid #444444;*/
 	background-color: rgba(107, 74, 27, .6);
-	/*background: #222222 url("../images/ui-bg_highlight-soft_35_222222_1x100.png") 50% 50% repeat-x;*/
 	font-weight: normal;
 	color: rgba(255,255,255,.8);
 }
@@ -479,8 +476,7 @@ a:visited.ui-button,
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
-	/*border: 1px solid #0b93d5;*/
-	/*background: #003147 url("../images/ui-bg_highlight-soft_33_003147_1x100.png") 50% 50% repeat-x;*/
+
 	font-weight: normal;
 
 }

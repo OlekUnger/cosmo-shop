@@ -32,3 +32,14 @@
     });
 })();
 
+(function(){
+    $('#errors').dialog({
+       autoOpen: false,
+       width: 450,
+       modal: true,
+       title: '',
+       show: {effect:'fade',duration: 500},
+       hide: {effect:'fade',duration: 500}
+    });
+})();
+
