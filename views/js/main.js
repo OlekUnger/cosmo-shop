@@ -47,7 +47,6 @@ $('#errors').dialog({
         autoOpen: false,
         width: 440,
         modal: true,
-        // title: title,
         resizable: false,
         show: {effect: 'fade', duration: 500},
         hide: {effect: 'fade', duration: 500}
@@ -76,4 +75,5 @@ $('#errors').dialog({
         $('#reset-password_form').css("display","none");
     });
 })();
+
 

@@ -10,6 +10,7 @@ function authorization()
     $password = trim($_POST['password']);
     if (empty($login) OR empty($password)) {
         $_SESSION['error'] = "Заполните поле";
+
     } else {
         $password = md5($password);
         $query = "SELECT name, is_admin FROM users WHERE login='$login' AND password='$password' LIMIT 1";
@@ -19,6 +20,7 @@ function authorization()
             $_SESSION['auth']['user'] = $row['name'];
             $_SESSION['auth']['is_admin'] = $row['is_admin'];
             $_SESSION['success'] = "Вход выполнен";
+
         } else {
             $_SESSION['error'] = "Неверный логин или пароль";
         }

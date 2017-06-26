@@ -8,7 +8,13 @@ include "models/{$view}_model.php";
 if(isset($_POST['reset-password'])){
     forgot();
     redirect();
-}else{
+}
+//если есть ссылка на восстановление пароля
+elseif(isset($_GET['forgot'])){
+    access_change();
+    include "views/{$view}.php";
+}
+else{
     redirect(PATH);
 }
 

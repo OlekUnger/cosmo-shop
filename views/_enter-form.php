@@ -33,7 +33,6 @@
 
 				<button type="submit" class="btn login" name="log_in">Войти</button>
 			</div>
-
 		</form>
 	</div>
 
