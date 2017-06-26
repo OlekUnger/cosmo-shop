@@ -20,6 +20,13 @@ function get_cat()
     return $arr_cat;
 }
 
+function redirect()
+{
+    $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+    header("Location: $redirect");
+    exit;
+}
+
 //Построение дерева
 function map_tree($data)
 {
@@ -39,7 +46,7 @@ function categories_to_string($data, $template = 'category_template.php')
 {
     $string = '';
     foreach ($data as $item) {
-        $string .= categories_to_template($item,$template);
+        $string .= categories_to_template($item, $template);
     }
     return $string;
 }
@@ -67,11 +74,7 @@ function pagination($page, $count_pages, $modrew = true)
 
     // формируем  ссылку,усли есть параметры в запросе:
     $uri = "?";
-//    if ($_SERVER['QUERY_STRING']) {
-//        foreach ($_GET as $key => $value) {
-//            if ($key != 'page') $uri .= "{$key}=$value&amp;";
-//        }
-//    }
+
     if (!$modrew) {
         if ($_SERVER['QUERY_STRING']) {
             foreach ($_GET as $key => $value) {
@@ -124,7 +127,7 @@ function breadcrumbs($categories, $id)
     if (!$id) return false;
     $breadcrumbs_array = array();
     for ($i = 0; $i < count($categories); $i++) {
-        if (isset($categories[$id])){
+        if (isset($categories[$id])) {
             //ставим ключом id запрошенной категории, а значением название категории
             $breadcrumbs_array[$categories[$id]['id']] = $categories[$id]['title'];
             // перезаписываем  id на родительский, чтобы искать аналогично дальше по дереву
@@ -135,13 +138,14 @@ function breadcrumbs($categories, $id)
 }
 
 // получение страниц
-function get_pages(){
+function get_pages()
+{
     global $connection;
     $query = "SELECT title, alias FROM pages ORDER BY position";
     $res = mysqli_query($connection, $query);
     $pages = array();
-    while($row = mysqli_fetch_assoc($res)){
-        $pages[$row['alias']]= $row['title'];
+    while ($row = mysqli_fetch_assoc($res)) {
+        $pages[$row['alias']] = $row['title'];
     }
     return $pages;
 }

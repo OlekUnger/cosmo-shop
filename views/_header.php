@@ -21,7 +21,10 @@
 <body>
 <div class="wrapper">
     <header>
-        <div class="main-content">
-            <?php include "_menu.php";?>
-        </div>
+	    <div class="container">
+		    <nav class="header_nav">
+              <?php include "_menu.php";?>
+		    </nav>
+	    </div>
+
     </header>

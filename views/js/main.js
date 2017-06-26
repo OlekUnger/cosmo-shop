@@ -1,45 +1,68 @@
-(function() {
-    var button = $('#submit');
+// (function () {
+//     var button = $('#submit');
+//
+//     button.on('click', function () {
+//         var title = $('input[name=title]').val();
+//
+//         $.ajax({
+//             url: '/rest.php?id=' + 32 + '&title=' + title,
+//             method: 'PUT',
+//             // dataType: 'json'
+//         }).done(function (data) {
+//             console.log(data);
+//         });
+//     });
+// })();
 
-    button.on('click', function () {
-        var title = $('input[name=title]').val();
-
-        $.ajax({
-            url: '/rest.php?id=' + 32 + '&title=' + title,
-            method: 'PUT',
-            // dataType: 'json'
-        }).done(function (data) {
-            console.log(data);
-        });
-    });
-})();
-
-(function(){
+(function () {
     $('.category').dcAccordion();
 })();
 
-(function(){
-    $('.breadcrumbs').find('.breadcrumbs_link:last-child').not('.main_link').attr('href','#').css('cursor','default');
+(function () {
+    $('.breadcrumbs').find('.breadcrumbs_link:last-child').not('.main_link').attr('href', '#').css('cursor', 'default');
 })();
 
-(function(){
+(function () {
     $('.open-form_btn').click(function () {
         $('#form-wrap').dialog('open');
-        var parent= $(this).attr('data');
+        var parent = $(this).attr('data');
         $this = $(this);
-        if(!parseInt(parent)) parent= 0;
+        if (!parseInt(parent)) parent = 0;
         $('input[name="parent"]').val(parent);
     });
 })();
 
-(function(){
-    $('#errors').dialog({
-       autoOpen: false,
-       width: 450,
-       modal: true,
-       title: '',
-       show: {effect:'fade',duration: 500},
-       hide: {effect:'fade',duration: 500}
+$('#errors').dialog({
+    autoOpen: false,
+    width: 450,
+    modal: true,
+    title: 'Сообщение об ошибке',
+    show: {effect: 'fade', duration: 500},
+    hide: {effect: 'fade', duration: 500}
+});
+
+// (function () {
+//     $('#enter-form').dialog({
+//         autoOpen: false,
+//         width: 400,
+//         modal: true,
+//         title: 'Вход',
+//         resizable: false,
+//         show: {effect: 'fade', duration: 500},
+//         hide: {effect: 'fade', duration: 500},
+//         // buttons: {
+//         //     "Войти": function () {
+//         //     }
+//         //     // "Отмена": function () {
+//         //     //     $(this).dialog('close');
+//         //     //     $('#comment_text').val('');
+//         //     // }
+//         // }
+//     })
+// })();
+
+(function () {
+    $('.enter-form_btn').click(function () {
+        $('#enter-form').dialog('open');
     });
 })();
-

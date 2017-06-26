@@ -6,14 +6,35 @@
 			 <li class="menu_item">
 				 <a class="menu_link" href="<?php echo PATH ?>"><?php echo $page_name; ?></a>
 			 </li>
-            <?php else: ?>
+        <?php else: ?>
 			 <li class="menu_item">
 				 <a class="menu_link" href="<?php echo PATH . 'page/' . $link; ?>"><?php echo $page_name; ?></a>
 			 </li>
         <?php endif; ?>
     <?php endforeach; ?>
 	<li class="menu_item">
-		<a class="menu_link" href="<?php echo PATH?>category/">Каталог</a>
-
+		<a class="menu_link" href="<?php echo PATH ?>category/">Каталог</a>
 	</li>
 </ul>
+
+<ul class="menu_list user_menu">
+
+    <?php if (isset($_SESSION['auth']['user'])): ?>
+	    <li class="menu_item">
+		    <p class="user-name"><?=htmlspecialchars($_SESSION['auth']['user']);?></p>
+	    </li>
+
+	    <li class="menu_item">
+		    <a href="<?=PATH?>logout" class="menu_link enter-form_btn">Выйти</a>
+	    </li>
+    <?php else: ?>
+		 <li class="menu_item">
+			 <span class="menu_link reg_btn">Регистрация</span>
+		 </li>
+		 <li class="menu_item">
+			 <span class="menu_link enter-form_btn">Войти</span>
+		 </li>
+    <?php endif; ?>
+
+</ul>
+

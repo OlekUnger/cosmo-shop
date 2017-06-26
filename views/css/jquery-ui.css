@@ -432,9 +432,7 @@ button.ui-button::-moz-focus-inner {
 
 	background: url("../img/ep_naturalblack.png") 50% 50% repeat;
 }
-.ui-widget-content a {
-	color: #ffffff;
-}
+
 .ui-widget-header {
     color: rgba(255,255,255,.7);
     font-weight: bold;

@@ -88,22 +88,17 @@ select {
     background: linear-gradient(to bottom, rgba(193, 232, 210, .7) 0%, rgba(130, 179, 151, .7) 40%, rgba(57, 128, 88, .7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
-.menu_list {
-    width: 100%;
-    display: flex;
-}
-
-.menu_link {
-
+.container{
+    padding: 0 10px;
+    margin: auto;
 }
 
 .main-content {
     width: 100%;
     margin: auto;
-    padding: 20px 10px;
+    padding: 40px 10px 20px 10px;
     display: flex;
     flex-wrap: wrap;
-
     /*justify-content: space-between;*/
 }
 
@@ -127,13 +122,13 @@ select {
 }
 
 @media (min-width: 1300px) {
-    .main-content {
+    .main-content,.container {
         width: 1300px;
     }
 }
 
 @media (max-width: 1300px) {
-    .main-content {
+    .main-content,.container {
         width: 1000px;
     }
 }
@@ -156,6 +151,27 @@ header {
     width: 100%;
     background-color: rgba(0, 0, 0, .2);
     border-bottom: 1px solid rgba(255, 255, 255, .1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header_nav{
+    height: 70px;
+    width: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.menu_list {
+    display: flex;
+    align-items: center;
+}
+
+.menu_link {
+
 }
 
 .category ul {
@@ -165,6 +181,7 @@ header {
 .sidebar_item {
     width: 100%;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .sidebar_item-header {
@@ -508,10 +525,23 @@ span.admin {
 .form {
     width: 100%;
 }
+.form_footer{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .form_item {
     width: 100%;
     margin-bottom: 25px;
+}
+#enter-form {
+    width: 400px;
+    /*display: none;*/
+}
+.enter-form_btn{
+    cursor: pointer;
 }
 
 .form_item input,
@@ -535,7 +565,8 @@ span.admin {
 .form button {
     padding: 0 20px;
     line-height: 40px;
-    margin: 0 auto;
+    float: right;
+    /*margin-top: 20px;*/
     border-radius: 3px;
     font-size: 16px;
     color: rgba(255, 255, 255, .6);
@@ -553,7 +584,10 @@ span.admin {
     font-size: 13px;
     /*font-style: italic;;*/
 }
-
+.user-name{
+    margin-right: 15px;
+    color: rgba(107, 74, 27, 1);
+}
 .btn-icon {
     display: block;
     position: relative;
@@ -619,9 +653,27 @@ span.admin {
 }
 #errors {
     color: #ffb73d;
-    /*margin-top: 20px;*/
+    display: none;
     text-align: center;
     opacity: .7;
+}
+#errors h4{
+    margin-top: 20px;
+}
+.reset-password_btn {
+    color: teal;
+    font-size: 14px;
+}
+.error,.success{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.success{
+    color: green;
+}
+.error {
+    color: red;
 }
 
 
