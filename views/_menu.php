@@ -25,7 +25,7 @@
 	    </li>
 
 	    <li class="menu_item">
-		    <a href="<?=PATH?>logout" class="menu_link enter-form_btn">Выйти</a>
+		    <a href="<?=PATH?>logout" class="menu_link">Выйти</a>
 	    </li>
     <?php else: ?>
 		 <li class="menu_item">

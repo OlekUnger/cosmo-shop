@@ -56,18 +56,25 @@
 
 		</div>
 
-		<div id="form-wrap">
+		<div id="comment-form">
 			<form action="<?= PATH ?>add_comment" method="post" class="form">
+				<?php if(isset($_SESSION['auth']['user'])):?>
+					<div class="form_item" style="display: none">
+						<label for="comment_author">Имя:</label>
+						<input type="text" name="comment_author" id="comment_author" value="<?=htmlspecialchars($_SESSION['auth']['user']);?>">
+					</div>
+             <?php else:?>
+					<div class="form_item">
+						<label for="comment_author">Имя:</label>
+						<input type="text" name="comment_author" id="comment_author">
+					</div>
 
-				<div class="form_item">
-					<label for="comment_author">Имя:</label>
-					<input type="text" name="comment_author" id="comment_author">
-				</div>
-
+             <?php endif;?>
 				<div class="form_item">
 					<label for="comment_text">Сообщение:</label>
 					<textarea type="text" name="comment_text" id="comment_text" rows="10"></textarea>
 				</div>
+
 				<input type="hidden" id="parent_id" name="parent" value="0">
 			</form>
 
@@ -85,7 +92,7 @@
 <script>
     $(document).ready(function () {
 
-        $('#form-wrap').dialog({
+        $('#comment-form').dialog({
             autoOpen: false,
             width: 640,
             modal: true,

@@ -8,5 +8,5 @@ if(isset($_POST['log_in'])){
     authorization();
     redirect();
 } else {
-//    header("Location:".PATH);
+    header("Location:".PATH);
 }

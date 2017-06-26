@@ -24,7 +24,7 @@
 
 (function () {
     $('.open-form_btn').click(function () {
-        $('#form-wrap').dialog('open');
+        $('#comment-form').dialog('open');
         var parent = $(this).attr('data');
         $this = $(this);
         if (!parseInt(parent)) parent = 0;
@@ -41,28 +41,39 @@ $('#errors').dialog({
     hide: {effect: 'fade', duration: 500}
 });
 
-// (function () {
-//     $('#enter-form').dialog({
-//         autoOpen: false,
-//         width: 400,
-//         modal: true,
-//         title: 'Вход',
-//         resizable: false,
-//         show: {effect: 'fade', duration: 500},
-//         hide: {effect: 'fade', duration: 500},
-//         // buttons: {
-//         //     "Войти": function () {
-//         //     }
-//         //     // "Отмена": function () {
-//         //     //     $(this).dialog('close');
-//         //     //     $('#comment_text').val('');
-//         //     // }
-//         // }
-//     })
-// })();
-
 (function () {
-    $('.enter-form_btn').click(function () {
-        $('#enter-form').dialog('open');
+    // var title;
+    $('#auth').dialog({
+        autoOpen: false,
+        width: 440,
+        modal: true,
+        // title: title,
+        resizable: false,
+        show: {effect: 'fade', duration: 500},
+        hide: {effect: 'fade', duration: 500}
     });
 })();
+
+(function () {
+    $('header .enter-form_btn').click(function (e) {
+        e.preventDefault();
+        $('#auth').dialog( 'open').dialog( {title:'Вход'});
+        $('#enter-form').css("display","block");
+    });
+})();
+
+(function () {
+    $('.reset-password_link').click(function (e) {
+        e.preventDefault();
+        $('#enter-form').css("display","none");
+        $('#auth').dialog( {title:'Восстановление пароля'});
+        $('#reset-password_form').css("display","block");
+    });
+})();
+(function () {
+    $('.enter_link').click(function () {
+        $('#enter-form').css("display","block");
+        $('#reset-password_form').css("display","none");
+    });
+})();
+

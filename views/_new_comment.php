@@ -1,8 +1,14 @@
-<?php if ($comment['is_admin']) {
-    $user_class = 'admin';
+<?php
+if(isset($_SESSION['auth']['user'])){
+    if ($comment['is_admin']==1) {
+        $user_class = 'admin';
+    } else{
+        $user_class = 'user';
+    }
 } else {
-    $user_class = 'user';
+    $user_class = '';
 }
+
 if ($comment['parent'] > 0) {
     $content_class = 'child-comment';
 } else {

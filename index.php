@@ -13,7 +13,9 @@ $routes = array(
     array('url'=>'#^category/(?P<id>\d+)?#i','view'=>'category'),
     array('url'=>'#^page/(?P<page_alias>[a-z0-9-]+)#i','view'=>'page'),
     array('url'=>'#^add_comment#i','view'=>'add_comment'),
-    array('url'=>'#^login#i','view'=>'login')
+    array('url'=>'#^login#i','view'=>'login'),
+    array('url'=>'#^logout#i','view'=>'logout'),
+    array('url'=>'#^forgot#i','view'=>'forgot')
 );
 foreach ($routes as $route){
     if(preg_match($route['url'],$url, $match)){

@@ -25,7 +25,9 @@
     url("../fonts/Roboto/RobotoLight/RobotoLight.woff") format("woff"),
     url("../fonts/Roboto/RobotoLight/RobotoLight.ttf") format("truetype");
 }
-
+html,body{
+    height: 100%;
+}
 * {
     margin: 0;
     padding: 0;
@@ -33,11 +35,13 @@
 
 .wrapper {
     min-width: 980px;
+    height:100%;
     margin: auto;
 }
 
 body {
     color: #fff;
+
     /*letter-spacing: .7px;*/
     font-size: 16px;
     line-height: 18px;
@@ -170,8 +174,8 @@ header {
     align-items: center;
 }
 
-.menu_link {
-
+.menu_link.active {
+    background-color: red;
 }
 
 .category ul {
@@ -522,9 +526,27 @@ span.admin {
     margin-bottom: 5px;
 }
 
-.form {
-    width: 100%;
+/*.form {*/
+    /*width: 400px;*/
+    /*padding: 20px;*/
+    /*border: 1px solid #444444;*/
+    /*border-radius:5px;*/
+/*}*/
+.form_header{
+    color: rgba(255,255,255,.7);
+    font-family: Verdana,sans-serif;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
+.close_btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    background-color: rgba(107, 74, 27, .6);
+    cursor: pointer;
+}
+
 .form_footer{
     display: flex;
     margin-top: 20px;
@@ -536,10 +558,15 @@ span.admin {
     width: 100%;
     margin-bottom: 25px;
 }
+
 #enter-form {
-    width: 400px;
-    /*display: none;*/
+    display: none;
 }
+
+#reset-password_form{
+    display: none;
+}
+
 .enter-form_btn{
     cursor: pointer;
 }
@@ -587,6 +614,7 @@ span.admin {
 .user-name{
     margin-right: 15px;
     color: rgba(107, 74, 27, 1);
+    font-style: italic;
 }
 .btn-icon {
     display: block;
@@ -660,7 +688,8 @@ span.admin {
 #errors h4{
     margin-top: 20px;
 }
-.reset-password_btn {
+.reset-password_link,
+.enter_link{
     color: teal;
     font-size: 14px;
 }
