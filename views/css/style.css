@@ -99,6 +99,7 @@ select {
 
 .main-content {
     width: 100%;
+    position: relative;
     margin: auto;
     padding: 40px 10px 20px 10px;
     display: flex;
@@ -528,9 +529,17 @@ span.admin {
     cursor: pointer;
     margin-bottom: 5px;
 }
-
-.form {
+.auth{
     width: 400px;
+    height: 400px;
+    /*margin: 100px auto;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+}
+.form {
+    width: 100%;
     padding: 20px;
     border: 1px solid #444444;
     border-radius:5px;
@@ -557,21 +566,45 @@ span.admin {
     justify-content: space-between;
     align-items: center;
 }
+.flipContainer{
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+}
+.flipper{
+    transition: 0.6s;
+    transform-style:preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.back,.front{
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.front{
+    transform: rotateY(0deg);
+}
+.back{
+    transform: rotateY(180deg);
+}
+.flipContainer.flip .flipper{
+    transform: rotateY(180deg);
+}
 
 .form_item {
     width: 100%;
     margin-bottom: 25px;
 }
 
-#enter-form {
-    display: none;
-}
-
-#reset-password_form{
-    display: none;
-}
 #forgot-form{
     margin: 100px auto 0;
+    width: 400px;
 }
 
 .enter-form_btn{
@@ -596,7 +629,7 @@ span.admin {
 
 }
 
-.form button {
+form .btn {
     padding: 0 20px;
     line-height: 40px;
     float: right;
@@ -607,11 +640,11 @@ span.admin {
     background-color: rgba(107, 74, 27, .6);
 }
 
-.form button:hover {
+form .btn:hover {
     background-color: rgba(120, 80, 30, .6);
 }
 
-.form label {
+form label {
     display: block;
     color: rgba(255, 255, 255, .6);
     margin: 10px 0;
@@ -695,8 +728,8 @@ span.admin {
 #errors h4{
     margin-top: 20px;
 }
-.reset-password_link,
-.enter_link{
+.btn-back,
+.btn-front{
     color: teal;
     font-size: 14px;
 }

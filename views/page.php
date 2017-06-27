@@ -5,7 +5,6 @@
 
 	<div class="content">
 
-		<?php include '_enter-form.php';?>
 
 	</div>
 </div>

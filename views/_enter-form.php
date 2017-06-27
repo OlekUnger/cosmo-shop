@@ -1,7 +1,9 @@
 <!--	авторизация-->
 <div id="auth">
 	<div class="form" id="enter-form">
-
+		<div class="form_header">
+			<h4>Вход</h4>
+		</div>
 		<form action="<?=PATH?>login" method="POST">
 
 			<div class="form_item">
@@ -33,13 +35,17 @@
 
 				<button type="submit" class="btn login" name="log_in">Войти</button>
 			</div>
+
 		</form>
 	</div>
 
 
 <!--		восстановление пароля-->
-	<div id="reset-password_form">
-		<form action="<?= PATH ?>forgot" method="post" class="form">
+	<div id="reset-password_form" class="form">
+		<div class="form_header">
+			<h4>Вход</h4>
+		</div>
+		<form action="<?= PATH ?>forgot" method="post">
 			<div class="form_item">
 				<label for="email">Email:</label>
 				<input type="text" name="email" id="email" value="">

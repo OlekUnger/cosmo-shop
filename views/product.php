@@ -57,7 +57,7 @@
 		</div>
 
 		<div id="comment-form">
-			<form action="<?= PATH ?>add_comment" method="post" class="form">
+			<form action="<?= PATH ?>add_comment" method="post">
 				<?php if(isset($_SESSION['auth']['user'])):?>
 					<div class="form_item" style="display: none">
 						<label for="comment_author">Имя:</label>
@@ -98,8 +98,8 @@
             modal: true,
             title: 'Добавить сообщение',
             resizable: false,
-            show: {effect: 'fade', duration: 500},
-            hide: {effect: 'fade', duration: 500},
+            show: {effect: 'slide', duration: 500},
+            hide: {effect: 'slide', duration: 500},
             buttons: {
                 "Добавить": function () {
                     var commentAuthor = $.trim($('#comment_author').val()),

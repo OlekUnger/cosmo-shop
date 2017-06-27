@@ -4,12 +4,11 @@ defined("CATALOG") or die("Access denied");
 //авторизация
 function authorization()
 {
-
     global $connection;
     $login = trim(mysqli_real_escape_string($connection, $_POST['login']));
     $password = trim($_POST['password']);
     if (empty($login) OR empty($password)) {
-        $_SESSION['error'] = "Заполните поле";
+        $_SESSION['enter_error'] = "Заполните поле";
 
     } else {
         $password = md5($password);
@@ -19,10 +18,10 @@ function authorization()
             $row = mysqli_fetch_assoc($res);
             $_SESSION['auth']['user'] = $row['name'];
             $_SESSION['auth']['is_admin'] = $row['is_admin'];
-            $_SESSION['success'] = "Вход выполнен";
+//            $_SESSION['success'] = "Вход выполнен";
 
         } else {
-            $_SESSION['error'] = "Неверный логин или пароль";
+            $_SESSION['enter_error'] = "Неверный логин или пароль";
         }
     }
 }

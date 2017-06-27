@@ -20,19 +20,16 @@
 <ul class="menu_list user_menu">
 
     <?php if (isset($_SESSION['auth']['user'])): ?>
+		 <p class="user-name"><?=htmlspecialchars($_SESSION['auth']['user']);?></p>
 	    <li class="menu_item">
-		    <p class="user-name"><?=htmlspecialchars($_SESSION['auth']['user']);?></p>
-	    </li>
-
-	    <li class="menu_item">
-		    <a href="<?=PATH?>logout" class="menu_link">Выйти</a>
+		    <a href="<?=PATH?>logout" class="menu_link enter-form_btn">Выйти</a>
 	    </li>
     <?php else: ?>
 		 <li class="menu_item">
 			 <span class="menu_link reg_btn">Регистрация</span>
 		 </li>
 		 <li class="menu_item">
-			 <span class="menu_link enter-form_btn">Войти</span>
+			 <a href="<?=PATH?>login" class="menu_link enter-form_btn">Войти</a>
 		 </li>
     <?php endif; ?>
 
