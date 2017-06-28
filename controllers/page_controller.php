@@ -10,6 +10,7 @@ if(!isset($page_alias)){
 //    include 'views/404.php';
 //    exit;
 //}
+
 $page = get_one_page($page_alias);
 //$breadcrumbs = "<a href='" .PATH. "'>Главная</a>";
 include "views/{$view}.php";

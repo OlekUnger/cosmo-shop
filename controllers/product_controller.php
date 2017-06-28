@@ -20,7 +20,7 @@ $get_comments = get_comments($product_id);
 //строим дерево комментариев
 $comments_tree = map_tree($get_comments);
 //получаем htmlкомментариев
-$comments = categories_to_string($comments_tree, 'comments_template.php');
+$comments = categories_to_string($comments_tree, '_comments_template.php');
 
 
 include "libs/breadcrumbs.php";

@@ -15,11 +15,13 @@ $routes = array(
     array('url'=>'#^add_comment#i','view'=>'add_comment'),
     array('url'=>'#^login#i','view'=>'login'),
     array('url'=>'#^logout#i','view'=>'logout'),
-    array('url'=>'#^forgot#i','view'=>'forgot')
+    array('url'=>'#^forgot#i','view'=>'forgot'),
+    array('url'=>'#^register#i','view'=>'register')
 );
 foreach ($routes as $route){
     if(preg_match($route['url'],$url, $match)){
         $view = $route['view'];
+        $active =$route['active'];
         break;
     }
 }
@@ -29,6 +31,8 @@ if(empty($match)){
     exit;
 }
 extract($match);
+
+
 
 // $id -id категории
 // $product_ alias - alias продукта

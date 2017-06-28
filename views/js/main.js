@@ -1,5 +1,5 @@
 
-
+//факкордеон
 (function () {
     $('.category').dcAccordion();
 })();
@@ -8,6 +8,7 @@
     $('.breadcrumbs').find('.breadcrumbs_link:last-child').not('.main_link').attr('href', '#').css('cursor', 'default');
 })();
 
+// открытие формы комментария
 (function () {
     $('.open-form_btn').click(function () {
         $('#comment-form').dialog('open');
@@ -18,6 +19,7 @@
     });
 })();
 
+//нотация об ошибке
 $('#errors').dialog({
     autoOpen: false,
     width: 450,
@@ -27,6 +29,7 @@ $('#errors').dialog({
     hide: {effect: 'slide', duration: 500}
 });
 
+// форма входа переворот
 (function(){
     $('.btn-front').click(function(){
         $('.flipContainer').toggleClass('flip');
@@ -36,6 +39,36 @@ $('#errors').dialog({
     $('.btn-back').click(function(){
         $('.flipContainer').removeClass('flip');
     })
+})();
+
+//регистрация
+(function(){
+    $('.access').change(function(){
+        var $this = $(this),
+            val = $.trim($this.val()),
+            dataField = $this.attr('data-field'),
+            checkIcon = $this.prev('label').find('span');
+
+        if(val!=''){
+
+            $.ajax({
+                url: 'http://catalog.loc/register.php',
+                type: 'POST',
+                data: {
+                    val: val,
+                    dataField: dataField
+                },
+                success: function (res) {
+                    if(res=='no'){
+                        checkIcon.text('занято').addClass('error');
+                    } else {
+                        checkIcon.text('свободно').addClass('success');
+                    }
+                    console.log(res);
+                }
+            });
+        }
+    });
 })();
 
 // (function () {

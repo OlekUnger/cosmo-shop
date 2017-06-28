@@ -38,6 +38,9 @@ html,body{
     height:100%;
     margin: auto;
 }
+h4 {
+    font-size: 18px;
+}
 
 body {
     color: #fff;
@@ -532,18 +535,23 @@ span.admin {
 .auth{
     width: 400px;
     height: 400px;
-    /*margin: 100px auto;*/
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,50%);
+
 }
 .form {
+    min-width: 400px;
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
-    border: 1px solid #444444;
+    border: 1px solid rgba(255,255,255,.1);
     border-radius:5px;
     background-color: rgba(0,0,0,.2);
+}
+.form-wrap{
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
 }
 .form_header{
     color: rgba(255,255,255,.7);
@@ -601,6 +609,9 @@ span.admin {
     width: 100%;
     margin-bottom: 25px;
 }
+.register-form{
+    width: 500px;
+}
 
 #forgot-form{
     margin: 100px auto 0;
@@ -619,7 +630,7 @@ span.admin {
     letter-spacing: 1px;
     color: rgba(255, 255, 255, .6);
     border-radius: 5px;
-    /*background-color: rgba(14, 14, 14, .4);*/
+    /*background-image: url('../img/ep_naturalblack.png');*/
     border: 1px solid rgba(255, 255, 255, .2);
 }
 
@@ -644,13 +655,19 @@ form .btn:hover {
     background-color: rgba(120, 80, 30, .6);
 }
 
-form label {
+label {
     display: block;
     color: rgba(255, 255, 255, .6);
     margin: 10px 0;
     font-size: 13px;
-    /*font-style: italic;;*/
+
 }
+
+.check-icon {
+    margin-left: 20px;
+    font-size: 13px;
+}
+
 .user-name{
     margin-right: 15px;
     color: rgba(107, 74, 27, 1);
@@ -740,9 +757,11 @@ form label {
 
 .success{
     color: green;
+    opacity: .8;
 }
 .error {
     color: red;
+    opacity: .8;
 }
 
 

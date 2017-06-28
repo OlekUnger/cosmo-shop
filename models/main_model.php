@@ -43,7 +43,7 @@ function map_tree($data)
 }
 
 //дерево в строку html
-function categories_to_string($data, $template = 'category_template.php')
+function categories_to_string($data, $template = '_category_template.php')
 {
     $string = '';
     foreach ($data as $item) {

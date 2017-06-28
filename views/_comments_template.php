@@ -14,7 +14,7 @@
 
     <?php if(isset($category['childs']) && $category['childs']):?>
         <ul >
-            <?php echo categories_to_string($category['childs'],'comments_template.php')?>
+            <?php echo categories_to_string($category['childs'],'_comments_template.php')?>
         </ul>
     <?php endif;?>
 
