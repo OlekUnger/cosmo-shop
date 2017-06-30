@@ -1,93 +1,97 @@
-<?php include "_header.php"; ?>
-<div class="main-content">
+<?php defined("CATALOG") or die("Access denied"); ?>
+<?php include "_head.php"; ?>
+<div class="wrapper">
+	<?php include "_header.php"; ?>
+	<div class="main-content">
 
-    <?php include '_sidebar.php'; ?>
+	    <?php include '_sidebar.php'; ?>
 
-	<div class="content">
-		<div class="breadcrumbs">
-          <?php echo $breadcrumbs; ?>
-		</div>
-
-		<div class="products">
-          <?php if ($get_one_product): ?>
-				 <article class="product_item--one">
-
-					 <div class="product_img">
-						 <img class="empty_thumb" src="<?= PATH ?>views/img/logo2.png" alt="">
-					 </div>
-					 <div class="product_header">
-						 <div class="product_title">
-                       <?php echo $get_one_product['title']; ?>
-						 </div>
-
-						 <div class="product_price">
-                       <?php echo $get_one_product['price']; ?> $
-						 </div>
-					 </div>
-					 <div class="product_description">
-                    <?php if ($get_one_product['content'] != '') {
-                        echo $get_one_product['content'];
-                    } else {
-                        echo 'Описание отсутствует';
-                    }
-                    ?>
-					 </div>
-				 </article>
-          <?php else: ?>
-              <?php echo "Такого товара нет." ?>
-          <?php endif; ?>
-
-		</div>
-		<div class="comments">
-			<div class="comments_header">
-				<h3>Комментарии (<?= $count_comments; ?>)</h3>
-				<button class="open-form_btn btn-icon btn-icon--right">Оставить комментарий</button>
+		<div class="content">
+			<div class="breadcrumbs">
+	          <?php echo $breadcrumbs; ?>
 			</div>
 
+			<div class="products">
+	          <?php if ($get_one_product): ?>
+					 <article class="product_item--one">
 
-			<ul class="comments_list">
-             <?php echo $comments; ?>
-			</ul>
-          <?php if (!empty($comments)): ?>
-				 <div class="comments_footer">
-					 <button class="open-form_btn btn-icon btn-icon--left">Оставить комментарий</button>
-				 </div>
-          <?php endif; ?>
+						 <div class="product_img">
+							 <img class="empty_thumb" src="<?= PATH ?>views/img/pictures/images.jpg" alt="">
+						 </div>
+						 <div class="product_header">
+							 <div class="product_title">
+	                       <?php echo $get_one_product['title']; ?>
+							 </div>
 
-		</div>
+							 <div class="product_price">
+	                       <?php echo $get_one_product['price']; ?> $
+							 </div>
+						 </div>
+						 <div class="product_description">
+	                    <?php if ($get_one_product['content'] != '') {
+	                        echo $get_one_product['content'];
+	                    } else {
+	                        echo 'Описание отсутствует';
+	                    }
+	                    ?>
+						 </div>
+					 </article>
+	          <?php else: ?>
+	              <?php echo "Такого товара нет." ?>
+	          <?php endif; ?>
 
-		<div id="comment-form">
-			<form action="<?= PATH ?>add_comment" method="post">
-				<?php if(isset($_SESSION['auth']['user'])):?>
-					<div class="form_item" style="display: none">
-						<label for="comment_author">Имя:</label>
-						<input type="text" name="comment_author" id="comment_author" value="<?=htmlspecialchars($_SESSION['auth']['user']);?>">
-					</div>
-             <?php else:?>
-					<div class="form_item">
-						<label for="comment_author">Имя:</label>
-						<input type="text" name="comment_author" id="comment_author">
-					</div>
-
-             <?php endif;?>
-				<div class="form_item">
-					<label for="comment_text">Сообщение:</label>
-					<textarea type="text" name="comment_text" id="comment_text" rows="10"></textarea>
+			</div>
+			<div class="comments">
+				<div class="comments_header">
+					<h3>Комментарии (<?= $count_comments; ?>)</h3>
+					<button class="open-form_btn btn-icon btn-icon--right">Оставить комментарий</button>
 				</div>
 
-				<input type="hidden" id="parent_id" name="parent" value="0">
-			</form>
 
+				<ul class="comments_list">
+	             <?php echo $comments; ?>
+				</ul>
+	          <?php if (!empty($comments)): ?>
+					 <div class="comments_footer">
+						 <button class="open-form_btn btn-icon btn-icon--left">Оставить комментарий</button>
+					 </div>
+	          <?php endif; ?>
+
+			</div>
+
+			<div id="comment-form">
+				<form action="<?= PATH ?>add_comment" method="post">
+					<?php if(isset($_SESSION['auth']['user'])):?>
+						<div class="form_item" style="display: none">
+							<label for="comment_author">Имя:</label>
+							<input type="text" name="comment_author" id="comment_author" value="<?=htmlspecialchars($_SESSION['auth']['user']);?>">
+						</div>
+	             <?php else:?>
+						<div class="form_item">
+							<label for="comment_author">Имя:</label>
+							<input type="text" name="comment_author" id="comment_author">
+						</div>
+
+	             <?php endif;?>
+					<div class="form_item">
+						<label for="comment_text">Сообщение:</label>
+						<textarea type="text" name="comment_text" id="comment_text" rows="10"></textarea>
+					</div>
+
+					<input type="hidden" id="parent_id" name="parent" value="0">
+				</form>
+
+			</div>
 		</div>
 	</div>
+	<div id="loader">
+		<span></span>
+	</div>
+	<div id="errors">
+		<h4></h4>
+	</div>
 </div>
-<div id="loader">
-	<span></span>
-</div>
-<div id="errors">
-	<h4></h4>
-</div>
-
+<?php include '_footer.php';?>
 <?php include '_scripts.php'; ?>
 <script>
     $(document).ready(function () {

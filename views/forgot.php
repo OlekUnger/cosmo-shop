@@ -1,3 +1,7 @@
+<?php defined("CATALOG") or die("Access denied"); ?>
+
+<?php include "_header.php"; ?>
+<div class="wrapper">
 <?php include "_header.php"; ?>
 	<div class="main-content">
 	<?php if (isset($_SESSION['forgot']['change_success'])): ?>
@@ -82,5 +86,7 @@
 <!--       --><?php //include '_enter-form.php';?>
 			</div>
 	<?php endif; ?>
-
+	</div>
+</div>
+<?php include '_footer.php';?>
 <?php include '_scripts.php'; ?>

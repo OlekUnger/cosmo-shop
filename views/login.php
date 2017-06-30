@@ -1,4 +1,4 @@
-<?php include "_header.php"; ?>
+<?php defined("CATALOG") or die("Access denied"); ?>
 <?php if(isset($_SESSION['email_error'])){
     $classBack="front";
     $classFront="back";
@@ -6,7 +6,10 @@
 	 $classFront="front";
 	 $classBack="back";
 };?>
-<div class="main-content">
+<?php include "_head.php"; ?>
+<div class="wrapper">
+    <?php include "_header.php"; ?>
+	<div class="main-content">
 	<div class="form-wrap">
        <?php if(isset($_SESSION['forgot']['success'])):?>
 			 <div class="notice">
@@ -90,7 +93,7 @@
 
 
 </div>
-
+</div>
 <!--		восстановление пароля-->
-
+<?php include '_footer.php';?>
 <?php include '_scripts.php'; ?>

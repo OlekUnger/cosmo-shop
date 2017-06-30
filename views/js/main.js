@@ -1,7 +1,13 @@
 
 //факкордеон
 (function () {
-    $('.category').dcAccordion();
+    $('.category').dcAccordion({
+        // eventType: 'hover',
+        // disableLink: false,
+        // hoverDelay: 100,
+        // speed: 'fast'
+    });
+
 })();
 
 (function () {

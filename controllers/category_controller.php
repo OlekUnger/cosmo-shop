@@ -4,9 +4,15 @@ defined("CATALOG") or die("Access denied");
 include "main_controller.php";
 include "models/{$view}_model.php";
 
-if(!isset($category_alias)) $category_alias = null;
+if (!isset($category_alias)) $category_alias = null;
 $id = get_id($categories, $category_alias);
 
+if ($category_alias && !$id) {
+    $products = $count_pages = null;
+//    include "views/{$view}.php";
+    include "views/404.php";
+    exit;
+}
 
 //if(!isset($id)){
 //    $id= null;
@@ -18,7 +24,7 @@ $ids = cat_id($categories, $id);
 if (!$ids) {
     $ids = $id;
 } else {
-    $ids = rtrim($ids.$id);
+    $ids = rtrim($ids . $id);
 }
 
 // ПАГИНАЦИЯ ----------------------------------
@@ -44,5 +50,4 @@ $start_pos = ($page - 1) * $perpage;
 $pagination = pagination($page, $count_pages);
 //---------------
 $products = get_products($ids, $start_pos, $perpage);
-
 include "views/{$view}.php";

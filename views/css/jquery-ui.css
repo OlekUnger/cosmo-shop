@@ -430,7 +430,7 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-widget-content {
 
-	background: url("../img/ep_naturalblack.png") 50% 50% repeat;
+	background: url("../img/bg/subtle_carbon.png") 50% 50% repeat;
 }
 
 .ui-widget-header {
