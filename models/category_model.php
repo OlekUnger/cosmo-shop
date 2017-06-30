@@ -1,6 +1,14 @@
 <?php
 defined("CATALOG") or die("Access denied");
 
+//получение id  категорий по алиасу
+function get_id($categories, $category_alias){
+    if(!$category_alias) return false;
+    foreach($categories as $key=>$value){
+        if($value['alias']==$category_alias) return $key;
+    }
+    return false;
+}
 //Получение id дочерних категорий
 function cat_id($categories, $id)
 {

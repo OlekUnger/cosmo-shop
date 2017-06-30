@@ -12,7 +12,6 @@ if(isset($_POST['log_in'])){
     authorization();
     if(!$_SESSION['enter_error']){
         redirect(PATH);
-
     }
 
 } else {
@@ -23,4 +22,5 @@ if(isset($_POST['reset-password'])){
     forgot();
     redirect();
 }
+
 include "views/{$view}.php";

@@ -130,7 +130,7 @@ function breadcrumbs($categories, $id)
     for ($i = 0; $i < count($categories); $i++) {
         if (isset($categories[$id])) {
             //ставим ключом id запрошенной категории, а значением название категории
-            $breadcrumbs_array[$categories[$id]['id']] = $categories[$id]['title'];
+            $breadcrumbs_array[$categories[$id]['alias']] = $categories[$id]['title'];
             // перезаписываем  id на родительский, чтобы искать аналогично дальше по дереву
             $id = $categories[$id]['parent'];
         } else break;

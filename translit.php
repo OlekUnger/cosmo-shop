@@ -1,5 +1,6 @@
 <?php
-include 'catalog.php';
+define("CATALOG",true);
+include 'config.php';
 
 $res = mysqli_query($connection, "SELECT id,title FROM products");
 while ($row = mysqli_fetch_assoc($res)) {
@@ -9,6 +10,16 @@ foreach($data as $key=>$value){
     $val = str2url($value);
     mysqli_query($connection, "UPDATE products SET alias = '$val' WHERE id = $key");
 }
+
+$res = mysqli_query($connection, "SELECT id,title FROM categories");
+while ($row = mysqli_fetch_assoc($res)) {
+    $data[$row['id']] = $row['title'];
+}
+foreach($data as $key=>$value){
+    $val = str2url($value);
+    mysqli_query($connection, "UPDATE categories SET alias = '$val' WHERE id = $key");
+}
+
 function rus2translit($string)
 {
     $converter = array(

@@ -13,7 +13,7 @@
 				 <article class="product_item--one">
 
 					 <div class="product_img">
-						 <img class="empty_thumb" src="<?= PATH ?>views/img/<?= $get_one_product['image']; ?>" alt="">
+						 <img class="empty_thumb" src="<?= PATH ?>views/img/logo2.png" alt="">
 					 </div>
 					 <div class="product_header">
 						 <div class="product_title">

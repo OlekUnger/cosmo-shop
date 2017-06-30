@@ -3,9 +3,14 @@ defined("CATALOG") or die("Access denied");
 
 include "main_controller.php";
 include "models/{$view}_model.php";
-if(!isset($id)){
-    $id= null;
-}
+
+if(!isset($category_alias)) $category_alias = null;
+$id = get_id($categories, $category_alias);
+
+
+//if(!isset($id)){
+//    $id= null;
+//}
 include "libs/breadcrumbs.php";
 
 //id дочерних категорий
@@ -13,7 +18,7 @@ $ids = cat_id($categories, $id);
 if (!$ids) {
     $ids = $id;
 } else {
-    $ids = rtrim($ids, ',');
+    $ids = rtrim($ids.$id);
 }
 
 // ПАГИНАЦИЯ ----------------------------------
