@@ -36,8 +36,18 @@
 									 <label for="password">Пароль:</label>
 									 <input type="text" name="password" id="password">
 								 </div>
+								 <div class="flex-between">
+									 <a href="#" class="btn-<?=$classFront?>">Забыли пароль?</a>
+									 <p>
 
-								 <a href="#" class="btn-<?=$classFront?>">Забыли пароль?</a>
+										 <input type="checkbox" id="remember-me" name="remember">
+										 <label for="remember-me" class="remember-me">Запомнить меня
+											 <span class="teal"></span>
+										 </label>
+									 </p>
+								 </div>
+
+<!--								 <a href="#" class="btn---><?//=$classFront?><!--">Забыли пароль?</a>-->
 								 <div class="form_footer">
 									 <div class="message">
 

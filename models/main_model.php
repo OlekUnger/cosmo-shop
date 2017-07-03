@@ -27,6 +27,29 @@ function redirect($http=false)
     header("Location: $redirect");
     exit;
 }
+//куки проверка авторизации
+function check_remember(){
+    //если пользоатель авторизован
+    if(isset($_SESSION['auth']['user'])) return;
+    //есть ли кука у пользователя
+    if(!isset($_COOKIE['hash'])) return;
+    global $connection;
+    $hash = mysqli_real_escape_string($connection, $_COOKIE['hash']);
+    $query = "SELECT login,name, is_admin FROM users WHERE remember='$hash'";
+    $res = mysqli_query($connection,$query);
+    if(mysqli_num_rows($res)>0){
+        $row = mysqli_fetch_assoc($res);
+        $_SESSION['auth']['user'] = $row['name'];
+        $_SESSION['auth']['login'] = $row['login'];
+        $_SESSION['auth']['is_admin'] = $row['is_admin'];
+    } else{
+        //удаляем куки
+        $hash=mysqli_real_escape_string($connection,$_COOKIE['hash']);
+        $query="UPDATE users SET remember='' WHERE remember='$hash'";
+        mysqli_query($connection,$query);
+        setcookie('hash','',time()-3600);
+    }
+}
 
 //Построение дерева
 function map_tree($data)

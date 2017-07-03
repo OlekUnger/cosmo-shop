@@ -31,9 +31,9 @@
 
 <ul class="menu_list user_menu">
 	<li class="menu_item">
-		<form action="" class="search_form">
+		<form action="<?=PATH?>search/" class="search_form" method="GET">
 			<div class="form_item">
-				<input type="text" name="search" id="search" value="" placeholder="Введите запрос">
+				<input type="text" name="search" id="autocomplete" value="" placeholder="Введите запрос">
 				<button type="submit" class="search_btn" name=""></button>
 			</div>
 		</form>

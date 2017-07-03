@@ -1,9 +1,16 @@
 <?php defined("CATALOG") or die("Access denied");?>
+<?php if($category['is_admin']==1){
+    $user_class= 'admin';
+} elseif($category['is_admin']==0){
+    $user_class = 'user';
+} else{
+    $user_class= 'non_user';
+}?>
 
 <li class="<?php if((int)$category['parent'] > 0) echo 'child-comment';?> comments_item">
     <div class="comment_content">
         <div class="comment_header">
-            <span class="<?php if($category['is_admin']) {echo 'admin';} else {echo 'user';}?>"><?php echo htmlspecialchars($category['comment_author']);?></span>
+            <span class="<?=$user_class?>"><?php echo htmlspecialchars($category['comment_author']);?></span>
             <span><?php echo $category['created'];?></span>
         </div>
         <div class="comment_text">

@@ -16,7 +16,7 @@
 					 <article class="product_item--one">
 
 						 <div class="product_img">
-							 <img class="empty_thumb" src="<?= PATH ?>views/img/pictures/images.jpg" alt="">
+							 <img class="empty_thumb no-hover" src="<?= PATH ?>views/img/pictures/image41.jpg" alt="">
 						 </div>
 						 <div class="product_header">
 							 <div class="product_title">

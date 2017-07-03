@@ -1,6 +1,7 @@
 <?php
 define("CATALOG",true);
 include 'config.php';
+//require_once 'vendor/autoload.php';
 
 $res = mysqli_query($connection, "SELECT id,title FROM products");
 while ($row = mysqli_fetch_assoc($res)) {
@@ -62,3 +63,20 @@ function str2url($str)
     $str = trim($str, "-");
     return $str;
 }
+
+
+
+//$faker = Faker\Factory::create();
+//for ($i = 1; $i<20; $i++) {
+//    global $connection;
+//    $title = $faker->swiftBicNumber;
+////    $alias = str2url($title);
+//    $parent = $faker->numberBetween($min = 100, $max = 106);
+//    $content = $faker->text;
+//    $price = $faker->randomFloat($nbMaxDecimals = NULL, $min = 20.00, $max = 200.00);
+//    $query = "INSERT INTO products (title,parent,content,price) VALUES ('$title',$parent,$content,$price)";
+//    $res = mysqli_query($connection, $query);
+//    if (mysqli_affected_rows($connection) > 0) {
+//        echo 'yes';
+//    }
+//}

@@ -6,7 +6,7 @@ if(isset($_SESSION['auth']['user'])){
         $user_class = 'user';
     }
 } else {
-    $user_class = '';
+    $user_class = 'non_user';
 }
 
 if ($comment['parent'] > 0) {

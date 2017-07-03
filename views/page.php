@@ -8,7 +8,7 @@
 
 		<div class="content">
 
-
+          <p class="content_text"><?php echo $page['text'] ?></p>
 		</div>
 	</div>
 </div>

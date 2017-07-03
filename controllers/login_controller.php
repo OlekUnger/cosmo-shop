@@ -9,6 +9,7 @@ if(isset($_SESSION['auth']['user'])){
 }
 
 if(isset($_POST['log_in'])){
+//    print_arr($_POST);
     authorization();
     if(!$_SESSION['enter_error']){
         redirect(PATH);

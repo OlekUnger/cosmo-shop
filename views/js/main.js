@@ -1,5 +1,5 @@
 
-//факкордеон
+//аккордеон
 (function () {
     $('.category').dcAccordion({
         // eventType: 'hover',
@@ -10,6 +10,17 @@
 
 })();
 
+//поиск
+(function () {
+    $('#autocomplete').autocomplete({
+        source: path+'search',
+        minLength: 1,
+        select: function (event,ui) {
+           window.location = path+'/search/?search='+ encodeURIComponent(ui.item.value);
+        }
+    });
+
+})();
 (function () {
     $('.breadcrumbs').find('.breadcrumbs_link:last-child').not('.main_link').attr('href', '#').css('cursor', 'default');
 })();
@@ -54,9 +65,11 @@ $('#errors').dialog({
             val = $.trim($this.val()),
             dataField = $this.attr('data-field'),
             checkIcon = $this.prev('label').find('span');
-
+            checkIcon.removeClass('error');
+            checkIcon.removeClass('success');
+            checkIcon.text('');
         if(val!=''){
-
+            // checkIcon.addClass('error').text('Заполниет поле');
             $.ajax({
                 url: 'http://catalog.loc/register.php',
                 type: 'POST',
@@ -65,51 +78,20 @@ $('#errors').dialog({
                     dataField: dataField
                 },
                 success: function (res) {
-                    if(res=='no'){
-                        checkIcon.text('занято').addClass('error');
-                    } else {
+                    var result=JSON.parse(res);
+                    // console.log(result);
+                    checkIcon.removeClass('error');
+                    checkIcon.text('');
+                    if(result.answer=='no'){
+                        checkIcon.addClass('error').text(result.info);
+
+                    } else{
                         checkIcon.text('свободно').addClass('success');
                     }
-                    console.log(res);
+
                 }
             });
         }
     });
 })();
 
-// (function () {
-//     // var title;
-//     $('#auth').dialog({
-//         autoOpen: false,
-//         width: 440,
-//         modal: true,
-//         resizable: false,
-//         show: {effect: 'fade', duration: 500},
-//         hide: {effect: 'fade', duration: 500}
-//     });
-// })();
-//
-// (function () {
-//     $('header .enter-form_btn').click(function (e) {
-//         e.preventDefault();
-//         $('#auth').dialog( 'open').dialog( {title:'Вход'});
-//         $('#enter-form').css("display","block");
-//     });
-// })();
-//
-// (function () {
-//     $('.reset-password_link').click(function (e) {
-//         e.preventDefault();
-//         $('#enter-form').css("display","none");
-//         $('#auth').dialog( {title:'Восстановление пароля'});
-//         $('#reset-password_form').css("display","block");
-//     });
-// })();
-// (function () {
-//     $('.enter_link').click(function () {
-//         $('#enter-form').css("display","block");
-//         $('#reset-password_form').css("display","none");
-//     });
-// })();
-//
-//

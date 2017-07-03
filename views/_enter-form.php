@@ -14,8 +14,13 @@
 				<label for="password">Пароль:</label>
 				<input type="text" name="password" id="password">
 			</div>
+			<div class="flex-between">
+				<a href="#" class="reset-password_link">Забыли пароль?</a>
+				<label for="remember-me" class="remember-me">
+					<input type="checkbox" id="remember-me">
+				</label>
+			</div>
 
-			<a href="#" class="reset-password_link">Забыли пароль?</a>
 			<div class="form_footer">
 				<div class="message">
 

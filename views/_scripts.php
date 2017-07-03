@@ -1,5 +1,8 @@
-
-<script src="<?php echo PATH ?>views/js/jquery-1.9.0.min.js"></script>
+<script>var path = "<?=PATH?>"</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+			integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			crossorigin="anonymous">
+</script>
 <script src="<?php echo PATH ?>views/js/jquery.hoverIntent.minified.js"></script>
 <script src="<?php echo PATH ?>views/js/jquery.accordion.js"></script>
 <script src="<?php echo PATH ?>views/js/jquery-ui.min.js"></script>

@@ -3,7 +3,7 @@
 <div class="sidebar">
 <!--	<div class="sidebar_item">-->
        <?php if (!isset($page_alias)): ?>
-			 <a href="#" class="menu_logo">
+			 <a href="<?=PATH?>" class="menu_logo">
 				 <img src="<?= PATH ?>views/img/logo12.png" alt="">
 			 </a>
        <?php endif; ?>

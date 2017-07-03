@@ -16,7 +16,8 @@ $routes = array(
     array('url'=>'#^product/(?P<product_alias>[a-z0-9-]+)#i', 'view'=>'product'),
     array('url'=>'#^category/(?P<category_alias>[a-z0-9-]+)?#i','view'=>'category'),
     array('url'=>'#^page/(?P<page_alias>[a-z0-9-]+)#i','view'=>'page'),
-    array('url'=>'#^add_comment#i','view'=>'add_comment')
+    array('url'=>'#^add_comment#i','view'=>'add_comment'),
+    array('url'=>'#^search#i','view'=>'search')
 );
 foreach ($routes as $route){
     if(preg_match($route['url'],$url, $match)){

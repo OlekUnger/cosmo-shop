@@ -53,3 +53,5 @@ function get_last_comment($comment_id)
     $res = array('answer' => 'Комментарий добавлен', 'code' => $comment_html, 'id' => $comment_id);
     return json_encode($res);
 }
+
+

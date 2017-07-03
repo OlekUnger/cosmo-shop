@@ -37,18 +37,15 @@ html, body {
 
 h4 {
     font-size: 18px;
+    color: rgba(107, 74, 27, .6);
 }
 
 body {
-    color: rgba(255,255,255,.7);
-
-    /*letter-spacing: .7px;*/
+    color: rgba(255, 255, 255, .4);
     font-size: 16px;
-    line-height: 18px;
+    line-height: 22px;
     font-family: "RobotoRegular", sans-serif;
-    /*background-image: url('../img/ep_naturalblack.png');*/
     background-image: url('../img/bg/subtle_carbon.png');
-
 }
 
 * {
@@ -65,28 +62,74 @@ input, textarea {
     background-color: transparent;
 }
 
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remember-me span{
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.remember-me span::before,
+.remember-me span::after {
+    content: '';
+    position: absolute;
+    display: none;
+    top: 8px;
+    width: 11px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, .5);
+}
+.remember-me span::before{
+    transform:rotate(55deg);
+}
+.remember-me span::after{
+    transform:rotate(-55deg);
+    right: 0;
+    width: 12px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ .remember-me span::before,
+input[type="checkbox"]:checked ~ .remember-me span::after{
+    display: block;
+}
+
 .wrapper {
     min-width: 980px;
     min-height: 100%;
     margin: auto;
-    height: auto!important
+    height: auto !important
 }
-.wrapper:after{
+
+.wrapper:after {
     content: '';
-    height: 80px;
+    height: 60px;
     display: block;
 }
 
-.footer{
+.footer {
     width: 100%;
-    height: 80px;
-    border-top: 1px solid rgba(255, 255, 255, .1);
+    height: 60px;
+    /*border-top: 1px solid rgba(255, 255, 255, .1);*/
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../img/bg/dark_mosaic.png');
-    color: rgba(255,255,255,.5);
-    margin-top: -80px;
+    /*background: url('../img/bg/dark_mosaic.png');*/
+    color: rgba(255, 255, 255, .2);
+    margin-top: -60px;
 }
 
 button {
@@ -121,7 +164,11 @@ select {
 .container {
     padding: 0 10px;
     margin: auto;
+}
 
+.content_text {
+    letter-spacing: .001em;
+    font-size: 17px;
 }
 
 .main-content {
@@ -142,8 +189,6 @@ select {
     align-items: flex-start;
     padding-right: 20px;
 }
-
-
 
 .content {
     width: 640px;
@@ -184,7 +229,6 @@ header {
     flex-direction: column;
 }
 
-
 .header_top {
     width: 100%;
     height: 200px;
@@ -212,7 +256,8 @@ header {
     overflow: hidden;
     opacity: .3;
 }
-.menu_logo{
+
+.menu_logo {
     overflow: hidden;
     display: block;
     height: 50px;
@@ -221,15 +266,18 @@ header {
     margin-bottom: 17px;
 }
 
+.menu_logo:hover {
+    opacity: .3;
+}
+
 .header_bottom {
     width: 100%;
-    /*background-color: rgba(0, 0, 0, .2);*/
     background: url('../img/bg/dark_mosaic.png');
     z-index: 1;
 }
 
 .header_nav {
-    height: 80px;
+    height: 70px;
     width: 100%;
     padding-right: 20px;
     display: flex;
@@ -241,8 +289,9 @@ header {
     display: flex;
     align-items: center;
 }
-.menu_item{
-    margin-right: 5px;
+
+.menu_item {
+    /*margin-right: 5px;*/
 }
 
 .menu_link.active {
@@ -252,6 +301,7 @@ header {
 .category ul {
     padding-left: 20px;
 }
+
 .sidebar {
     width: 300px;
     margin-right: 20px;
@@ -267,7 +317,7 @@ header {
 .sidebar_item-header {
     border-radius: 3px 3px 0 0;
     color: rgba(255, 255, 255, .6);
-    height: 50px;
+    height: 40px;
     padding: 0 20px;
     display: flex;
     align-items: center;
@@ -308,6 +358,7 @@ header {
 .category_link {
     font-family: "RobotoRegular", sans-serif;
     display: block;
+    font-size: 15px;
     line-height: 40px;
     color: rgba(255, 255, 255, .5);
 }
@@ -334,12 +385,11 @@ header {
     /*margin-bottom: 10px;*/
 }
 
-
 .breadcrumbs_link,
 .menu_link {
     display: block;
     position: relative;
-
+    margin-right: 5px;
     margin-bottom: 5px;
     border-radius: 3px;
     padding: 0 10px;
@@ -413,6 +463,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
+    /*min-height: 600px;*/
 }
 
 .products_item {
@@ -433,8 +484,13 @@ header {
 .product_img .empty_thumb {
     opacity: .6;
 }
+
 .product_img .empty_thumb:hover {
     opacity: .8;
+}
+
+.empty_thumb.no-hover {
+    opacity: 1;
 }
 
 .product_header {
@@ -493,6 +549,7 @@ header {
     color: rgba(255, 255, 255, .3);
     text-align: center;
 }
+
 .pag_item.active,
 .pag_item:hover {
     color: teal;
@@ -615,14 +672,11 @@ header {
 }
 
 span.admin,
-span.user {
-    /*font-family: "Sansus", sans-serif;*/
-    /*font-weight: 300;*/
-    display: block;
+span.user,
+span.non_user {
     max-width: 400px;
     font-size: 15px;
     letter-spacing: 1px;
-    color: rgba(107, 74, 27, 1);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -630,6 +684,10 @@ span.user {
 
 span.admin {
     color: brown;
+}
+
+span.user {
+    color: rgba(107, 74, 27, 1);
 }
 
 .comment_content {
@@ -749,6 +807,7 @@ span.admin {
     width: 500px;
 }
 
+
 #forgot-form {
     margin: 100px auto 0;
     width: 400px;
@@ -837,7 +896,7 @@ label {
     background-repeat: no-repeat;
     -webkit-background-size: 24px;
     background-size: 24px;
-    opacity: .6;
+    opacity: .5;
 }
 
 .btn-icon--right::before {
@@ -851,7 +910,7 @@ label {
 }
 
 .open-form_btn:hover::before {
-    opacity: 1;
+    opacity: .8;
 }
 
 #loader {
@@ -909,16 +968,18 @@ label {
     color: red;
     opacity: .8;
 }
-.search_form{
+
+.search_form {
     position: relative;
     margin-right: 20px;
     width: 400px;
 }
 
-.search_form .form_item{
+.search_form .form_item {
     position: relative;
     margin-bottom: 0;
 }
+
 .search_form .search_btn {
     position: absolute;
     top: 0;
@@ -929,13 +990,15 @@ label {
     background-image: url('../img/search.png');
     -webkit-background-size: 20px;
     background-size: 20px;
-    background-repeat:no-repeat;
-    background-position:  0 10px;
+    background-repeat: no-repeat;
+    background-position: 0 10px;
     opacity: .4;
 }
-.search_form .search_btn:hover{
+
+.search_form .search_btn:hover {
     opacity: .8;
 }
+
 .search_form input {
     padding-right: 50px;
 }

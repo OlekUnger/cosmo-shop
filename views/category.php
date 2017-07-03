@@ -24,7 +24,7 @@
 							 <a class="product_img" href="<?php echo PATH ?>product/<?= $product['alias']; ?>">
 								 <!--							 <img class="empty_thumb" src="--><? //= PATH ?><!--views/img/-->
                           <? //= $product['image']; ?><!--" alt="">-->
-								 <img class="empty_thumb" src="<?= PATH ?>views/img/pictures/images.jpg" alt="">
+								 <img class="empty_thumb" src="<?= PATH ?>views/img/pictures/image4.jpg" alt="">
 							 </a>
 							 <div class="product_header">
 								 <div class="product_title">
