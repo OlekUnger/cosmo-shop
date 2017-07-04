@@ -1,4 +1,3 @@
-
 //аккордеон
 (function () {
     $('.category').dcAccordion({
@@ -12,11 +11,12 @@
 
 //поиск
 (function () {
+
     $('#autocomplete').autocomplete({
-        source: path+'search',
+        source: path + 'search',
         minLength: 1,
-        select: function (event,ui) {
-           window.location = path+'/search/?search='+ encodeURIComponent(ui.item.value);
+        select: function (event, ui) {
+            window.location = path + '/search/?search=' + encodeURIComponent(ui.item.value);
         }
     });
 
@@ -47,28 +47,28 @@ $('#errors').dialog({
 });
 
 // форма входа переворот
-(function(){
-    $('.btn-front').click(function(){
+(function () {
+    $('.btn-front').click(function () {
         $('.flipContainer').toggleClass('flip');
     })
 })();
-(function(){
-    $('.btn-back').click(function(){
+(function () {
+    $('.btn-back').click(function () {
         $('.flipContainer').removeClass('flip');
     })
 })();
 
 //регистрация
-(function(){
-    $('.access').change(function(){
+(function () {
+    $('.access').change(function () {
         var $this = $(this),
             val = $.trim($this.val()),
             dataField = $this.attr('data-field'),
             checkIcon = $this.prev('label').find('span');
-            checkIcon.removeClass('error');
-            checkIcon.removeClass('success');
-            checkIcon.text('');
-        if(val!=''){
+        checkIcon.removeClass('error');
+        checkIcon.removeClass('success');
+        checkIcon.text('');
+        if (val != '') {
             // checkIcon.addClass('error').text('Заполниет поле');
             $.ajax({
                 url: 'http://catalog.loc/register.php',
@@ -78,14 +78,14 @@ $('#errors').dialog({
                     dataField: dataField
                 },
                 success: function (res) {
-                    var result=JSON.parse(res);
+                    var result = JSON.parse(res);
                     // console.log(result);
                     checkIcon.removeClass('error');
                     checkIcon.text('');
-                    if(result.answer=='no'){
+                    if (result.answer == 'no') {
                         checkIcon.addClass('error').text(result.info);
 
-                    } else{
+                    } else {
                         checkIcon.text('свободно').addClass('success');
                     }
 
@@ -94,4 +94,8 @@ $('#errors').dialog({
         }
     });
 })();
+
+
+
+
 

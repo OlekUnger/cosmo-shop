@@ -1,8 +1,8 @@
 <?php
 defined("CATALOG") or die("Access denied");
 
-include "main_controller.php";
-include "models/{$view}_model.php";
+require_once "main_controller.php";
+require_once "models/{$view}_model.php";
 
 if(isset($_POST['val'])){
     echo access_field();
@@ -19,5 +19,5 @@ if(isset($_POST['reg_in'])){
 
 //$breadcrumbs = "<a href='" .PATH. "'>Главная</a>";
 //$breadcrumbs .= "<a href='"#"'>Регистрация</a>";
-include "views/{$view}.php";
+require_once "views/{$view}.php";
 

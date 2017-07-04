@@ -1,7 +1,7 @@
 <?php
 defined("CATALOG") or die("Access denied");
 
-include 'models/main_model.php';
+require_once 'models/main_model.php';
 
 $categories = get_cat();
 $categories_tree = map_tree($categories);

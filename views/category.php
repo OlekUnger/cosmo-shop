@@ -1,11 +1,11 @@
 <?php defined("CATALOG") or die("Access denied"); ?>
 
-<?php include "_head.php"; ?>
+<?php require_once "_head.php"; ?>
 <div class="wrapper">
-    <?php include "_header.php"; ?>
+    <?php require_once "_header.php"; ?>
 	<div class="main-content">
 
-       <?php include '_sidebar.php'; ?>
+       <?php require_once '_sidebar.php'; ?>
 
 		<div class="content">
 			<div class="nav_panel">
@@ -47,5 +47,5 @@
 		</div>
 	</div>
 </div>
-<?php include '_footer.php'; ?>
-<?php include '_scripts.php'; ?>
+<?php require_once '_footer.php'; ?>
+

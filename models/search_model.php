@@ -10,8 +10,9 @@ function search_autocomplete()
     $res = mysqli_query($connection, $query);
     $result_search = array();
     while ($row = mysqli_fetch_assoc($res)) {
-        $result_search[] = $row['title'];
+        $result_search[] = array('label'=>$row['title'],'category'=>'Title');
     }
+
     return $result_search;
 }
 

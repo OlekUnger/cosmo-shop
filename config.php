@@ -5,7 +5,7 @@ define("DBHOST","localhost");
 define("DBUSER","root");
 define("DBPASS","");
 define("DBNAME","catalog");
-define("PATH","http://catalog.loc/");
+//define("PATH","http://catalog.loc/");
 define("PERPAGE",12);
 //$option_perpage = array(12,18,24,30);
 

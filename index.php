@@ -19,15 +19,28 @@ $routes = array(
     array('url'=>'#^add_comment#i','view'=>'add_comment'),
     array('url'=>'#^search#i','view'=>'search')
 );
+//http://catalog.loc/index.php
+$app_path = 'http://'. $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+
+//http://catalog.loc/
+$app_path = preg_replace('#[^/]+$#','',$app_path);
+define("PATH",$app_path);
+
+//http://catalog.loc/page/about
+$url= 'http://'. $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+//page/about
+$url=str_replace(PATH, '',$url);
+
 foreach ($routes as $route){
     if(preg_match($route['url'],$url, $match)){
         $view = $route['view'];
-//        $page_alias =$route['active'];
         break;
     }
 }
 
 if(empty($match)){
+    header("HTTP/1.1 404 Not Found");
     include 'views/404.php';
     exit;
 }

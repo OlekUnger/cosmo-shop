@@ -1,8 +1,8 @@
 <?php
 defined("CATALOG") or die("Access denied");
 
-include "main_controller.php";
-include "models/{$view}_model.php";
+require_once "main_controller.php";
+require_once "models/{$view}_model.php";
 
 if(isset($_SESSION['auth']['user'])){
     redirect(PATH);

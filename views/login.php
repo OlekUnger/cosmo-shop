@@ -6,9 +6,9 @@
 	 $classFront="front";
 	 $classBack="back";
 };?>
-<?php include "_head.php"; ?>
+<?php require_once "_head.php"; ?>
 <div class="wrapper">
-    <?php include "_header.php"; ?>
+    <?php require_once "_header.php"; ?>
 	<div class="main-content">
 	<div class="form-wrap">
        <?php if(isset($_SESSION['forgot']['success'])):?>
@@ -105,5 +105,4 @@
 </div>
 </div>
 <!--		восстановление пароля-->
-<?php include '_footer.php';?>
-<?php include '_scripts.php'; ?>
+<?php require_once '_footer.php';?>

@@ -865,4 +865,11 @@ a.ui-button:active,
 	font-weight: normal;
 	color: teal;
 }
+.ui-autocomplete-category{
+	font-weight: bold;
+	font-style: italic;
+	padding: .2em .4em;
+	margin: .3em .2em;
+	line-height: 1.5em;
+}
 /*-------------------------end------------------------------*/

@@ -1,8 +1,8 @@
 <?php defined("CATALOG") or die("Access denied"); ?>
-<?php include "_head.php"; ?>
+<?php require_once "_head.php"; ?>
 
 <div class="wrapper">
-    <?php include "_header.php"; ?>
+    <?php require_once "_header.php"; ?>
 	<div class="main-content">
        <?php if (isset($_SESSION['reg']['reg_success'])): ?>
 			 <div class="notice">
@@ -68,5 +68,5 @@
 
 	</div>
 </div>
-<?php include '_footer.php'; ?>
-<?php include '_scripts.php'; ?>
+<?php require_once '_footer.php'; ?>
+

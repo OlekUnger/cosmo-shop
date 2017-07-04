@@ -1,15 +1,15 @@
 <?php
 defined("CATALOG") or die("Access denied");
 
-include "main_controller.php";
-include "models/{$view}_model.php";
+require_once "main_controller.php";
+require_once "models/{$view}_model.php";
 
 if (!isset($category_alias)) $category_alias = null;
 $id = get_id($categories, $category_alias);
 
 if ($category_alias && !$id) {
     $products = $count_pages = null;
-//    include "views/{$view}.php";
+    header("HTTP/1.1 404 Not Found");
     include "views/404.php";
     exit;
 }
@@ -17,7 +17,7 @@ if ($category_alias && !$id) {
 //if(!isset($id)){
 //    $id= null;
 //}
-include "libs/breadcrumbs.php";
+require_once "libs/breadcrumbs.php";
 
 //id дочерних категорий
 $ids = cat_id($categories, $id);
@@ -50,4 +50,4 @@ $start_pos = ($page - 1) * $perpage;
 $pagination = pagination($page, $count_pages);
 //---------------
 $products = get_products($ids, $start_pos, $perpage);
-include "views/{$view}.php";
+require_once "views/{$view}.php";

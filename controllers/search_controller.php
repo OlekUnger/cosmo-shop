@@ -1,8 +1,8 @@
 <?php
 defined("CATALOG") or die("Access denied");
 
-include "main_controller.php";
-include "models/{$view}_model.php";
+require_once "main_controller.php";
+require_once "models/{$view}_model.php";
 
 if(isset($_GET['term'])){
     $result_search = search_autocomplete();
@@ -35,4 +35,4 @@ if(isset($_GET['term'])){
 $breadcrumbs = "<a class='breadcrumbs_link main_link' href='" .PATH. "'>Главная</a> ";
 $breadcrumbs .= "<a class='breadcrumbs_link' href='" .PATH."search/'>Результаты поиска</a> ";
 
-include "views/{$view}.php";
+require_once "views/{$view}.php";

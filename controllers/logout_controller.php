@@ -1,7 +1,7 @@
 <?php
 defined("CATALOG") or die("Access denied");
 
-include "models/main_model.php";
+require_once "models/main_model.php";
 
 if(isset($_COOKIE['hash'])){
     $hash=mysqli_real_escape_string($connection,$_COOKIE['hash']);
