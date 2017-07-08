@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
+
 <?php $active = array_shift(explode('/',$url));?>
 
 <ul class="menu_list">

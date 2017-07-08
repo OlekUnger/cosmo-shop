@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
+
 <?php if(isset($_SESSION['email_error'])){
     $classBack="front";
     $classFront="back";

@@ -1,4 +1,3 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
 
 <?php require_once "_head.php"; ?>
 <div class="wrapper">
@@ -10,7 +9,7 @@
 
 				<div class="" id="enter-form">
 
-					<form class="form" action="<?= PATH_ADMIN ?>login" method="POST">
+					<form class="form" action="<?= PATH ?>login" method="POST">
 						<div class="form_header">
 							<h4>Вход</h4>
 						</div>
@@ -23,11 +22,11 @@
 							<input type="text" name="password" id="password">
 						</div>
 						<div class="flex-between">
-<!--							<a href="#" class="btn-front">Забыли пароль?</a>-->
+							<!--							<a href="#" class="btn-front">Забыли пароль?</a>-->
 							<p>
 
 								<input type="checkbox" id="remember-me" name="remember">
-								<label for="remember-me" class="remember-me" >
+								<label for="remember-me" class="remember-me">
 									<span class="teal" style="margin-right:10px"></span>
 									Запомнить меня
 								</label>

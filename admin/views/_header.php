@@ -1,10 +1,10 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
+
 <header>
     <?php if (isset($page_alias)): ?>
         <div class="header_top">
             <div class="pic">
                 <div class="header_logo">
-                    <img src="<?= PATH_ADMIN ?>views/img/logo12.png" alt="">
+                    <img src="<?= PATH ?>views/img/logo12.png" alt="">
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
+
 <header>
     <?php if (isset($page_alias)): ?>
 		 <div class="header_top">

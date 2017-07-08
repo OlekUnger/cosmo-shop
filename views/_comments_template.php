@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied");?>
+
 <?php if($category['is_admin']==1){
     $user_class= 'admin';
 } elseif($category['is_admin']==0){

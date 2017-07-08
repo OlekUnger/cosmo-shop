@@ -1,16 +1,15 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
-
 
 <ul class="menu_list">
-
 	<li class="menu_item ">
-		<a class="menu_link" href="<?=PATH_ADMIN ?>">Админка</a>
+		<a class="menu_link" href="<?=PATH?>">Админка</a>
 	</li>
-
 </ul>
+
+<h2><?=$menu_title?></h2>
+
 <ul class="menu_list">
 	<li class="menu_item">
-		<a class="menu_link" href="<?=SITE ?>">Сайт</a>
+		<a class="menu_link" href="<?=SITE ?>" target="_blank">Сайт</a>
 	</li>
 </ul>
 

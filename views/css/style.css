@@ -353,7 +353,7 @@ header {
     -moz-border-radius: 0 0 3px 3px;
     border-radius: 0 0 3px 3px;
     background-color: rgba(0, 0, 0, .2);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .1);
 }
 
 .category_link {
@@ -598,7 +598,7 @@ header {
     -moz-border-radius: 5px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, .2);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .1);
 }
 
 .notice h2 {
@@ -699,11 +699,11 @@ span.user {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .1);
 }
 
 .new-comment .comment_content {
-    box-shadow: inset 0 0 0 1px #2e7db2 !important;
+    border: 1px solid #2e7db2 !important;
 }
 
 .replay_btn {

@@ -1,4 +1,3 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
 
 <?php require_once "_head.php"; ?>
 <div class="wrapper">

@@ -1,4 +1,3 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
 
 <div class="sidebar">
 <!--	<div class="sidebar_item">-->

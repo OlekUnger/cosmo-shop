@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
+
 <?php require_once "_head.php"; ?>
 <div class="wrapper">
 	<?php require_once "_header.php"; ?>
@@ -46,7 +46,6 @@
 					<h3>Комментарии (<?= $count_comments; ?>)</h3>
 					<button class="open-form_btn btn-icon btn-icon--right">Оставить комментарий</button>
 				</div>
-
 
 				<ul class="comments_list">
 	             <?php echo $comments; ?>
@@ -100,7 +99,7 @@
             autoOpen: false,
             width: 640,
             modal: true,
-            title: 'Добавить сообщение',
+            title: 'Добавить комментарий',
             resizable: false,
             show: {effect: 'slide', duration: 500},
             hide: {effect: 'slide', duration: 500},
